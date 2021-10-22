@@ -1,3 +1,7 @@
+%{
+
+%}
+
 %start start
 
 %token <BigInt.BigInt> NUM

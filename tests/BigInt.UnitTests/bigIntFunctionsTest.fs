@@ -15,16 +15,14 @@ module bigIntFunctionsTest =
 
     module bigintTests = 
 
+        let rand = Random()
         let genRandomList l =
-            let rand = System.Random()
             List.init (rand.Next(1, l)) (fun _ -> rand.Next(9))
 
         let genRandomBigInteger l =
             let rList = (genRandomList l)
             let temp =  rList |> List.fold (fun (acc, dec) x ->  ( (BigInteger x) * dec + acc , dec * (BigInteger 10)  ) ) (BigInteger 0, BigInteger 1)  
             fst temp
-            
-        let rand = System.Random()
             
         let bigIntegerToBigInt (num : BigInteger) =
             let strNum = num |> string
@@ -148,7 +146,7 @@ module bigIntFunctionsTest =
                     Expect.isTrue (bntEqual (bigIntegerToBigInt s) s1) "pow works incorrectly"
 
                 testProperty "toBinary test" <| fun _ ->
-                    let x = System.Random().Next(10000) 
+                    let x = rand.Next(10000) 
                     let s = BigInteger (intToBinary x)
                     let x1 = bigIntegerToBigInt (BigInteger x)
                     let sb = toBinary x1

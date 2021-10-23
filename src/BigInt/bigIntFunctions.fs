@@ -13,16 +13,16 @@ module bigIntFunctions =
         sysListToMyList ( List.rev (myListToSystemList ml) )
         
     let strToBigint (s : String) =
-        let pos = if s.[0] = '-' then false else true
+        let pos = not (s.[0] = '-') 
         if s.Length = 1 then
-            let lst = [(int s.[0] - 48)]
+            let lst = [(int s.[0] - int '0')]
             let ml = sysListToMyList lst
             bInt (ml, true)
         else 
             let list = 
                 [
                   for i = 1 to s.Length - 1 do 
-                  int s.[i] - 48
+                  int s.[i] - int '0'
                 ]
             let ml = 
                 if (s.[0] <> '+') && (s.[0] <> '-')
@@ -38,17 +38,11 @@ module bigIntFunctions =
         if not bnt.isPos then "-" + (convertToString s)
         else convertToString s
         
-    let compareBnt (bnt1 : bInt) (bnt2 : bInt) =
-        isEqual bnt1.digits bnt2.digits && (bnt1.isPos = bnt2.isPos)
-        
     let removeZeros (ml : MyList<_>) =
         let rec go (dgts : MyList<int>) =
             match dgts with
             | First x -> First x
-            | Cons(h, t) ->
-                if h = 0
-                then go t
-                else Cons (h, t)
+            | Cons(h, t) -> if h = 0 then go t else Cons (h, t)
         go ml
         
     let reverseSign (bnt : bInt) =
@@ -61,8 +55,8 @@ module bigIntFunctions =
     let isOdd (bnt : bInt) =
         let rev = reverse bnt.digits
         match rev with
-        | First x -> if x % 2 = 0 then false else true
-        | Cons (h, t) -> if h % 2 = 0 then false else true
+        | First x -> not (x % 2 = 0) 
+        | Cons (h, t) -> not (h % 2 = 0) 
         
     let zeroComplete (ml : MyList<_>) num toEnd =
         let temp = List.init num (fun i -> i*0)
@@ -74,9 +68,9 @@ module bigIntFunctions =
         if length ml1 = length ml2 then (ml1, ml2)
         elif length ml1 > length ml2
         then
-            ( ml1,  (zeroComplete (ml2) (length ml1 - length ml2) false ) )
+            ( ml1, (zeroComplete ml2 (length ml1 - length ml2) false ) )
         else
-            ( ml2, (zeroComplete (ml1) (length ml2 - length ml1) false) )
+            ( ml2, (zeroComplete ml1 (length ml2 - length ml1) false) )
 
     let transferOdd (ml : MyList<_>) = 
         let rec go (ml : MyList<_>) acc =
@@ -84,10 +78,7 @@ module bigIntFunctions =
            | First x ->
                if x + acc >= 10
                then
-                   let a =
-                       if ((x + acc) / 10) >= 10
-                       then go (First ((x + acc) / 10) ) 0
-                       else First ((x + acc) / 10)
+                   let a = if ((x + acc) / 10) >= 10 then go (First ((x + acc) / 10) ) 0 else First ((x + acc) / 10)
                    Cons ( ( (x + acc) % 10), a)
                else First (x + acc)
            | Cons (h, t) -> Cons ( ( (h + acc) % 10), ( go t ((acc + h) / 10) ))
@@ -102,6 +93,7 @@ module bigIntFunctions =
             match ml3, ml4 with
             | First x, First y -> First (x+y)
             | Cons (h1, t1), Cons (h2, t2) -> Cons ( (h1 + h2), go t1 t2 )
+            | _, _ -> failwith "This case cannot be achieved"
         reverse (transferOdd (go (reverse ml3) (reverse ml4)) )
      
     let subMl (ml1 : MyList<_>) (ml2 : MyList<_> ) =
@@ -110,8 +102,7 @@ module bigIntFunctions =
             match ml1, ml2, acc with
             | First x, First y, acc -> First (x - y + acc)
             | Cons(h1, t1), Cons(h2, t2), acc ->
-                
-                if h1 - h2 + acc  < 0
+                if h1 - h2 + acc < 0
                 then Cons ( (acc + h1 - h2 + 10), go t1 t2 (- 1) ) 
                 else Cons ((h1 - h2 + acc), go t1 t2 0 )
             | _ -> failwith "this case cannot be achieved"
@@ -158,21 +149,12 @@ module bigIntFunctions =
         | true, true | false, false -> bInt( (multMl bnt1.digits bnt2.digits), true)
         | true, false | false, true -> bInt( (multMl bnt1.digits bnt2.digits), false)
         
-    let podbor (big : MyList<_>) (small : MyList<_>) =
+    let select (big : MyList<_>) (small : MyList<_>) =
         let rec go (big : MyList<_>) (small : MyList<_>) (acc : MyList<_>) = 
             if (ml1Greater big (multMl small acc)) then go big small (sumMl acc (First 1))
             elif (isEqual big (multMl small acc)) then go big small (sumMl acc (First 1))
             else subMl acc (First 1)
         go big small (First 1)
-
-    let rec toFirst (lst : MyList<_>) =
-        match lst with
-        | First x -> x
-        | Cons (h, t) -> 
-            match t with
-            | First ft -> toFirst (First (h*10 + ft))
-            | Cons (ht, tt) ->
-                toFirst (Cons( (h*10 + ht), tt)) 
 
     let divRemMl (ml1 : MyList<_>) (ml2 : MyList<_>) = 
         if removeZeros ml2 = First 0 then failwith "dividing by 0"
@@ -182,13 +164,13 @@ module bigIntFunctions =
             let rec go (big : MyList<int>) (small : MyList<int>) (res : MyList<int>)  =
                 match big with
                 | First x ->
-                    let q = (podbor (reverse (transferOdd (First x))) small )
+                    let q = (select (reverse (transferOdd (First x))) small )
                     let r = subMl (reverse (transferOdd (First x)))  (reverse (multMl small q))  
                     ((concat res q), r)  
                 | Cons (h, t) ->
                     if ml1Greater (reverse (transferOdd (First h))) small
                     then
-                        let q = (podbor (reverse (transferOdd (First h))) small )
+                        let q = (select (reverse (transferOdd (First h))) small )
                         let r = subMl (reverse (transferOdd (First h)))  ( (multMl small q))
                         match r with
                         | First x ->
@@ -200,19 +182,19 @@ module bigIntFunctions =
                                     let l = Cons ((x*10 + ht), tt)
                                     go l small (concat res q)
                         | Cons (hr, tr) ->
-                             let normr = toFirst r  
+                             let fstR = toFirst r  
                              match t with
-                                | First onet -> go (First (normr*10 + onet) ) small (concat res q)
-                                | Cons (ht, tt) -> go (Cons ((normr*10 + ht ), tt)) small (concat res q)
+                                | First onet -> go (First (fstR*10 + onet) ) small (concat res q)
+                                | Cons (ht, tt) -> go (Cons ((fstR*10 + ht ), tt)) small (concat res q)
                     elif isEqual (reverse (transferOdd (First h))) small
                     then go t small (concat res (First 1))
                     else
                         match t with
                         | First x -> go (First (h*10 + x)) small (concat res (First 0))
                         | Cons (ht, tt) -> go (Cons ((h*10 + ht), tt ) ) small (concat res (First 0))
-            let a = fst (go ml1 ml2 (First 0) )
-            let r = subMl ml1 (multMl a ml2)
-            (removeZeros (getTail a), r)
+            let d = fst (go ml1 ml2 (First 0) )
+            let r = subMl ml1 (multMl d ml2)
+            (removeZeros (getTail d), r)
                                      
     let divBnt (bnt1 : bInt) (bnt2 : bInt) =
         match bnt1.isPos, bnt2.isPos with
@@ -234,13 +216,12 @@ module bigIntFunctions =
                 let divd = divBnt (bInt(l, true)) (bInt(First 2, true))
                 let rem = remBnt (bInt(l, true)) (bInt(First 2, true))
                 go divd.digits (Cons(getHead rem.digits, r))
-
         let divd = divBnt (bInt (x.digits, true)) (bInt (First 2, true))
         let rem = remBnt (bInt (x.digits, true)) (bInt (First 2, true))
         bInt (go divd.digits (First (getHead rem.digits)), x.isPos)
 
     let toPower (bnt : bInt) (num : bInt) =
-        if num.isPos = false then failwith "the power should be positive"
+        if not num.isPos then failwith "the power should be positive"
         let rec go (ml : MyList<_>) (pow : MyList<_>) =
             match pow with
             | First 0 -> First 1

@@ -12,32 +12,6 @@ module bigIntFunctions =
     let reverse (ml : MyList<int>) =
         sysListToMyList ( List.rev (myListToSystemList ml) )
         
-    let strToBigint (s : String) =
-        let pos = not (s.[0] = '-') 
-        if s.Length = 1 then
-            let lst = [(int s.[0] - int '0')]
-            let ml = sysListToMyList lst
-            bInt (ml, true)
-        else 
-            let list = 
-                [
-                  for i = 1 to s.Length - 1 do 
-                  int s.[i] - int '0'
-                ]
-            let ml = 
-                if (s.[0] <> '+') && (s.[0] <> '-')
-                then
-                    let b = (First (int s.[0]- 48))
-                    concat b (sysListToMyList list)
-                else (sysListToMyList list)
-            bInt (ml, pos)
-        
-    let bntToString (bnt : bInt) =
-        let s = (myListToSystemList bnt.digits)
-        let convertToString l = l |> List.map (fun i -> i.ToString()) |> String.concat ""
-        if not bnt.isPos then "-" + (convertToString s)
-        else convertToString s
-        
     let removeZeros (ml : MyList<_>) =
         let rec go (dgts : MyList<int>) =
             match dgts with
@@ -234,6 +208,32 @@ module bigIntFunctions =
         match bnt.isPos with
         | true -> bInt ((go bnt.digits num.digits), true)
         | false -> if isOdd num then bInt ((go bnt.digits num.digits), true) else bInt ((go bnt.digits num.digits), false)
+           
+    let strToBigint (s : String) =
+        let pos = not (s.[0] = '-') 
+        if s.Length = 1 then
+            let lst = [(int s.[0] - int '0')]
+            let ml = sysListToMyList lst
+            bInt (ml, true)
+        else 
+            let list = 
+                [
+                  for i = 1 to s.Length - 1 do 
+                  int s.[i] - int '0'
+                ]
+            let ml = 
+                if (s.[0] <> '+') && (s.[0] <> '-')
+                then
+                    let b = (First (int s.[0] - int '0'))
+                    concat b (sysListToMyList list)
+                else (sysListToMyList list)
+            bInt (ml, pos)
+        
+    let bntToString (bnt : bInt) =
+        let s = (myListToSystemList bnt.digits)
+        let convertToString l = l |> List.map (fun i -> i.ToString()) |> String.concat ""
+        if not bnt.isPos then "-" + (convertToString s)
+        else convertToString s
 
         
          

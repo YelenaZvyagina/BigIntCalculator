@@ -6,12 +6,8 @@
     <projectFile>tests/BigInt.UnitTests/BigInt.UnitTests.fsproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
+    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/Main.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Main.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/myList.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/myList.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/toTree.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/toTree.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +39,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
   </component>
   <component name="RunManager" selected=".NET Project.BigInt.UnitTests">
     <configuration name="BigInt" type="DotNetProject" factoryName=".NET Project">
@@ -115,8 +111,16 @@
       <option name="presentableId" value="Default" />
       <updated>1634935618146</updated>
       <workItem from="1634935629346" duration="7388000" />
-      <workItem from="1634984660219" duration="7279000" />
+      <workItem from="1634984660219" duration="10005000" />
     </task>
+    <task id="LOCAL-00001" summary="refactor">
+      <created>1634992128903</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1634992128903</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,5 +137,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
 </project>

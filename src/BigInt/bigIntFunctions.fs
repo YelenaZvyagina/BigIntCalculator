@@ -43,7 +43,6 @@ module BigIntFunctions =
         let rec go (dgts : MyList<int>) =
             match dgts with
             | First x -> First x
-
             | Cons(h, t) -> if h = 0 then go t else Cons (h, t)
         go ml
         

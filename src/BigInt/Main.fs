@@ -13,18 +13,17 @@ module Main =
         | InputString of code:string
         | Compute
         | ToDot of output:string
-
         interface IArgParserTemplate with
             member s.Usage =
                 match s with
                 | InputFile _ -> "File with code"
                 | InputString _ -> "String of code" 
-                | Compute -> "Return the result of interptetation of given code"
-                | ToDot _ -> "Generates dot code of syntax tree to the given file"
+                | Compute -> "Return the result of interpretation of given code"
+                | ToDot _ -> "Generates dot code of ast to the given file"
 
     [<EntryPoint>]
     let main (argv: string array) =
-        let parser = ArgumentParser.Create<CLIArguments>(programName = "Arithmetics interpreter")
+        let parser = ArgumentParser.Create<CLIArguments>(programName = "BigInt interpreter")
         let results = parser.Parse(argv)
         let p = parser.ParseCommandLine argv
         if argv.Length = 0 || results.IsUsageRequested then parser.PrintUsage() |> printfn "%s"
@@ -38,6 +37,6 @@ module Main =
             then
                 let _, _, pD = Interpreter.run ast
                 printfn "%s" pD.["print"]
-            if p.Contains(ToDot) then drawTree ast (results.GetResult ToDot)
+            if p.Contains(ToDot) then toDot ast (results.GetResult ToDot)
         
         0

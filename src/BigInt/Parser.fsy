@@ -1,10 +1,10 @@
 %{
-open bigIntCalculator
+open BigIntCalculator
 %}
 
 %start start
 
-%token <bigIntFunctions.bInt> NUM
+%token <BigIntFunctions.bInt> NUM
 %token SUM
 %token SUB
 %token MUL
@@ -31,11 +31,18 @@ start: stmt {[$1]}
 
 stmt: KW_PRINT vname {AST.Print($2)}
     | KW_LET vname EQ expr {AST.VDecl($2,$4)}
-    | vname {failwith "parse error"}
-    | NUM {failwith "parse error"}
-    | LBR {failwith "parse error"}
-    | RBR {failwith "parse error"}
-    | ABS {failwith "parse error"}
+    | vname {failwith "parse error of variable name"}
+    | NUM {failwith "parse error of num" }
+    | LBR {failwith "parse error: of left brackets"}
+    | RBR {failwith "parse error of right brackets"}
+    | ABS {failwith "parse error of abs"} 
+    | SUM {failwith "parse error of sum"}
+    | MUL {failwith "parse error of mult"}
+    | DIV {failwith "parse error of div"}
+    | SUB {failwith "parse error of sub"}
+    | REM {failwith "parse error of rem"}
+    | POW {failwith "parse error of pow"}
+    | BIN {failwith "parse error of bin"}
 
 expr: rexpr {$1}
     | expr SUM rexpr {AST.Sum($1, $3)}

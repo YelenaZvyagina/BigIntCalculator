@@ -1,6 +1,6 @@
-namespace bigIntCalculator
+namespace BigIntCalculator
 
-module myList =
+module MyList =
 
     type MyList<'t> =
         | First of 't
@@ -68,17 +68,7 @@ module myList =
                 | First x, First y -> x = y
                 | Cons (h1, t1), Cons (h2, t2) -> (h1 = h2) && (go t1 t2)
                 | _ -> failwith "this case cannot be achieved"
-            go ml1 ml2
-            
-    let ml1Greater (ml1 : MyList<_>) (ml2 : MyList<_>) =
-        if length ml1 <> length ml2 then length ml1 > length ml2
-        else
-            let rec go (ml1 : MyList<_>) (ml2 : MyList<_>) =
-                match ml1, ml2 with
-                | First x, First y -> x > y
-                | Cons (h1, t1), Cons (h2, t2) -> if h1 <> h2 then h1 > h2 else (go t1 t2)
-                | _ -> failwith "Got first and cons at the same time, this case cannot be achieved"
-            go ml1 ml2   
+            go ml1 ml2  
             
     let getHead (ml : MyList<_>) =
         match ml with
@@ -90,11 +80,3 @@ module myList =
         | First x -> First x
         | Cons(h, t) -> t
         
-    let rec toFirst (lst : MyList<_>) =
-        match lst with
-        | First x -> x
-        | Cons (h, t) -> 
-            match t with
-            | First ft -> toFirst (First (h*10 + ft))
-            | Cons (ht, tt) ->
-                toFirst (Cons( (h*10 + ht), tt)) 

@@ -16,7 +16,7 @@ type token =
   | MUL
   | SUB
   | SUM
-  | NUM of (bigIntFunctions.bInt)
+  | NUM of (BigIntFunctions.bInt)
 type tokenId = 
     | TOKEN_EOF
     | TOKEN_ABS

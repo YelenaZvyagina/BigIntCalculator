@@ -1,7 +1,7 @@
-namespace bigIntCalculator
+namespace BigIntCalculator
 module AST =
 
-    open bigIntCalculator.bigIntFunctions
+    open BigIntCalculator.BigIntFunctions
 
     type VName = Var of string
 

@@ -1,12 +1,12 @@
-namespace bigIntCalculatorTests
+namespace BigIntCalculatorTests
 
 module CalculatorTests = 
 
     open Expecto
-    open bigIntCalculator
+    open BigIntCalculator
     open Interpreter
-    open bigIntFunctions
-    open bigIntCalculatorTests.bigIntFunctionsTest
+    open BigIntFunctions
+    open BigIntCalculatorTests.BigIntFunctionsTest
 
     // ensuring that variable declaring and printing works correctly
     let example =

@@ -1,12 +1,12 @@
-namespace bigIntCalculator
+namespace BigIntCalculator
 open System.Collections.Generic
-open bigIntFunctions
+open BigIntFunctions
 open FSharp.Text.Lexing
     
 module Interpreter =
 
     open System.Collections.Generic
-    open bigIntFunctions
+    open BigIntFunctions
     open FSharp.Text.Lexing
    
     let rec processExpr (vDict:Dictionary<AST.VName,AST.Expression>) expr =

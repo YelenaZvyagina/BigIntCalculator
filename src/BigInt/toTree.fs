@@ -1,8 +1,8 @@
-namespace bigIntCalculator
+namespace BigIntCalculator
 
-open bigIntCalculator
+open BigIntCalculator
 open AST
-open bigIntFunctions
+open BigIntFunctions
 
 module toTree =
     

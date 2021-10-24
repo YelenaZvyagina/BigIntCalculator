@@ -37,7 +37,7 @@ rule tokenStream = parse
 | "print" { Parser.KW_PRINT }
 | vname { Parser.VNAME(lexeme lexbuf) }
 // --------------------------
-| number		{ Parser.NUM((LexBuffer<_>.LexemeString lexbuf).Trim() |> bigIntCalculator.bigIntFunctions.strToBigint) }
+| number		{ Parser.NUM((LexBuffer<_>.LexemeString lexbuf) |> BigIntCalculator.BigIntFunctions.strToBigint) }
 // --------------------------
 | _    		{ failwith ("Lexer error. Unexpected symbol: " + LexBuffer<_>.LexemeString lexbuf) }
 | eof   	{ Parser.EOF }

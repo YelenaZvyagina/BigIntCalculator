@@ -1,10 +1,10 @@
-namespace bigIntCalculator
+namespace BigIntCalculator
 
 
 module Main =
 
     open Argu
-    open bigIntCalculator
+    open BigIntCalculator
     open toTree
     
 

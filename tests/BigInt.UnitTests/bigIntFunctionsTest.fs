@@ -1,19 +1,19 @@
-namespace bigIntCalculatorTests
+namespace BigIntCalculatorTests
 
 open System
 open System.Collections.Generic
 open System.ComponentModel
 
-module bigIntFunctionsTest = 
+module BigIntFunctionsTest = 
 
     open System.Numerics
-    open bigIntCalculator
-    open bigIntFunctions
+    open BigIntCalculator
+    open BigIntFunctions
     open Expecto.Flip
-    open myList
+    open MyList
     open Expecto
 
-    module bigintTests = 
+    module BigintTests = 
 
         let rand = Random()
         let genRandomList l =
@@ -89,27 +89,27 @@ module bigIntFunctionsTest =
         [<Tests>]
         let arFuncsTests =
             testList "test for arithmetical functions" [
-                testProperty "sum test" <| fun _ -> 
+                testProperty "sum test" <| fun _ ->
                    let x = genRandomBigInteger 20
                    let z = genRandomBigInteger 20
                    let s3 = (bigIntegerToBigInt (x + z) )
                    let s4 = (sumBint (bigIntegerToBigInt x) (bigIntegerToBigInt z))
                    Expect.isTrue (bntEqual s3 s4) "summ works incorrectly"
-                   
+                  
                 testProperty "sub test" <| fun _ -> 
                     let x = genRandomBigInteger 20
                     let y = genRandomBigInteger 20
                     let s1 = (bigIntegerToBigInt (x - y))
                     let s2 = (subBint (bigIntegerToBigInt x) (bigIntegerToBigInt y))
                     Expect.isTrue (bntEqual s1 s2) "subtraction works incorrectly"
-                    
+
                 testProperty "mul test" <| fun _ ->
                     let x = genRandomBigInteger 10
                     let z = genRandomBigInteger 10
                     let s3 = bigIntegerToBigInt (x * z)
                     let s4 = multBnt (bigIntegerToBigInt x) (bigIntegerToBigInt z)
                     Expect.isTrue (bntEqual s3 s4) "multiplication works incorrectly"
-                    
+
                 testProperty "div test" <| fun _ ->
                     let x = genRandomBigInteger 10
                     let y = genRandomBigInteger 10
@@ -123,7 +123,7 @@ module bigIntFunctionsTest =
                         let s1 = bigIntegerToBigInt (x / y)
                         let s2 = divBnt (bigIntegerToBigInt x) (bigIntegerToBigInt y)
                         Expect.isTrue (bntEqual s1 s2) "division works incorrectly"
-                    
+
                 testProperty "remainder test" <| fun _ ->
                     let x = genRandomBigInteger 10
                     let y = genRandomBigInteger 10
@@ -137,7 +137,7 @@ module bigIntFunctionsTest =
                         let s1 = bigIntegerToBigInt (x % y)
                         let s2 = remBnt (bigIntegerToBigInt x) (bigIntegerToBigInt y)
                         Expect.isTrue (bntEqual s1 s2) "finding remainder works incorrectly"   
-                    
+
                 testProperty "pow test" <| fun _ ->
                     let x = genRandomBigInteger 5
                     let y = rand.Next(5)
@@ -151,7 +151,7 @@ module bigIntFunctionsTest =
                     let x1 = bigIntegerToBigInt (BigInteger x)
                     let sb = toBinary x1
                     Expect.isTrue (bntEqual (bigIntegerToBigInt s) sb) "toBinary works incorrectly"
-                    
+
                 testProperty "Unary minus test" <| fun _ ->
                     let x = genRandomBigInteger 20
                     let minusX = x * (BigInteger -1)
@@ -159,5 +159,100 @@ module bigIntFunctionsTest =
                     Expect.isTrue (bntEqual (bigIntegerToBigInt minusX) expAns) "Reversesign works incorrectly"
             ]
             
-
+        [<Tests>]
+        let helpersOnInt64Tests =
+            testList "helpers for int64" [
                 
+                testProperty "isEqual test" <| fun _ ->
+                    let x = int64 ( (rand.Next()) * Int32.MaxValue )
+                    let y = x
+                    let x1 = strToBigint (string x)
+                    let y1 = strToBigint (string y)
+                    Expect.isTrue (isEqual x1.digits y1.digits) "isEqual works incorrectly"
+                    
+                testProperty "ml1Greater test" <| fun _ ->
+                    let x = int64 ( (rand.Next()) * Int32.MaxValue )
+                    let y = int64 (rand.Next(1000))
+                    let x1 = strToBigint (string x)
+                    let y1 = strToBigint (string y)
+                    Expect.isTrue (ml1Greater x1.digits y1.digits) "ml1Greater works incorrectly"
+                    
+                testProperty "transferodd test" <| fun _ ->
+                    let x = (rand.Next(10)) 
+                    let x1 = strToBigint (string x)
+                    let y = reverse (transferOdd x1.digits )
+                    Expect.isTrue (isEqual y (First x) ) "transferodd works incorrectly"
+                    
+                testProperty "becomeEqual test" <| fun _ ->
+                    let x = int64 ( (rand.Next()) * Int32.MaxValue )
+                    let y = int64 (rand.Next(1000))
+                    let x1 = strToBigint (string x)
+                    let y1 = strToBigint (string y)
+                    let comp = length x1.digits
+                    let res = (becomeEqual x1.digits y1.digits )
+                    Expect.isTrue ( length (snd res) = comp )  "becomeequal works incorrectly"
+            ]
+            
+        
+            
+        [<Tests>]
+        let arithmOnInt64Tests = 
+            testList "arithmetics for int64" [
+                
+                testProperty "Unary minus test" <| fun _ ->
+                    let x = int64 ( (rand.Next()) * Int32.MaxValue )
+                    let x1 = strToBigint (string x)
+                    let xun = x *  int64 (-1)
+                    let x1un = reverseSign x1
+                    Expect.isTrue (bntEqual x1un (strToBigint (string xun)) ) "unary minus works incorrectly"
+                    
+                testProperty "sum test" <| fun _ ->
+                   let x = int64 ( (rand.Next()) * Int32.MaxValue )
+                   let y = int64 ( (rand.Next()) * Int32.MaxValue )
+                   let x1 = strToBigint (string x)
+                   let y1 = strToBigint (string y)
+                   let sumBint = sumBint x1 y1
+                   let sumNums = x + y
+                   let comp = strToBigint (string sumNums)
+                   Expect.isTrue (bntEqual sumBint comp) "sum works incorrectly"
+                  
+                testProperty "sub test" <| fun _ ->
+                   let x = int64 ( (rand.Next()) * Int32.MaxValue )
+                   let y = int64 ( (rand.Next()) * Int32.MaxValue )
+                   let x1 = strToBigint (string x)
+                   let y1 = strToBigint (string y)
+                   let subBint = subBint x1 y1
+                   let subNums = x - y
+                   let comp = strToBigint (string subNums)
+                   Expect.isTrue (bntEqual subBint comp) "subtraction works incorrectly"
+                    
+                testProperty "mul test" <| fun _ ->
+                    let x = int64 (rand.Next(10000))
+                    let y = int64 (rand.Next(10000))
+                    let x1 = strToBigint (string x)
+                    let y1 = strToBigint (string y)
+                    let mulBint = multBnt x1 y1
+                    let mulNums = x * y
+                    let comp = strToBigint (string mulNums)
+                    Expect.isTrue (bntEqual mulBint comp) "multiplication works incorrectly"
+                    
+                testProperty "div test" <| fun _ ->
+                    let x = int64 (rand.Next(10000))
+                    let y = int64 (rand.Next(10000) + 1) 
+                    let x1 = strToBigint (string x)
+                    let y1 = strToBigint (string y)
+                    let divBint = divBnt x1 y1
+                    let divNums = x / y
+                    let comp = strToBigint (string divNums)
+                    Expect.isTrue (bntEqual divBint comp) "division works incorrectly"
+                    
+                testProperty "remainder test" <| fun _ ->
+                    let x = int64 (rand.Next(10000))
+                    let y = int64 (rand.Next(10000))
+                    let x1 = strToBigint (string x)
+                    let y1 = strToBigint (string y)
+                    let remBint = remBnt x1 y1
+                    let remNums = x % y
+                    let comp = strToBigint (string remNums)
+                    Expect.isTrue (bntEqual remBint comp) "remainder works incorrectly"
+            ]

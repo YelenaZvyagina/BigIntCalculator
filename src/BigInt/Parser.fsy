@@ -47,20 +47,28 @@ stmt: KW_PRINT vname {AST.Print($2)}
 expr: rexpr {$1}
     | expr SUM rexpr {AST.Sum($1, $3)}
     | expr SUB rexpr {AST.Sub($1, $3)}
+    | KW_LET {failwith "parse error of let"}
+    | KW_PRINT {failwith "parse error of print"}
 
 rexpr: baseAndPow {$1}
     | rexpr MUL baseAndPow {AST.Mul($1, $3)}
     | rexpr DIV baseAndPow {AST.Div($1, $3)}
     | rexpr REM baseAndPow {AST.Rem($1, $3)}
+    | KW_LET {failwith "parse error of let"}
+    | KW_PRINT {failwith "parse error of print"}
 
 baseAndPow: power {$1}
     | baseAndPow POW power {AST.Pow($1, $3)}
+    | KW_LET {failwith "parse error of let"}
+    | KW_PRINT {failwith "parse error of print"}
     
 power: LBR expr RBR {$2}  
     | ABS expr ABS {AST.Abs $2}
     | NUM {AST.Num($1)}
     | vname {AST.NVar($1)} 
     | BIN expr {AST.Bin $2}
+    | KW_LET {failwith "parse error of let"}
+    | KW_PRINT {failwith "parse error of print"}
 
 vname: VNAME {AST.Var($1)}
 

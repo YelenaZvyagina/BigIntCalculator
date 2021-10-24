@@ -237,7 +237,6 @@ let _fsyacc_reductions ()  =    [|
                  : 'gentype_stmt));
 # 238 "Parser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
-            let _1 = parseState.GetInput(1) :?> 'gentype_rexpr in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (

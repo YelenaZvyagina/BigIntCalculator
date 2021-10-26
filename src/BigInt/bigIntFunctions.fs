@@ -9,9 +9,6 @@ module BigIntFunctions =
         val isPos : Boolean
         new (lst, isneg) = {digits = lst; isPos = isneg}
         
-    let reverse (ml : MyList<int>) =
-        sysListToMyList ( List.rev (myListToSystemList ml) )
-        
     let ml1Greater (ml1 : MyList<_>) (ml2 : MyList<_>) =
         if length ml1 <> length ml2 then length ml1 > length ml2
         else
@@ -106,16 +103,18 @@ module BigIntFunctions =
         | false, false -> bInt((sumMl bnt1.digits bnt2.digits), false)
         | true, true -> bInt((sumMl bnt1.digits bnt2.digits), true)
         | false, true | true, false ->
+            let eq = isEqual bnt1.digits bnt2.digits
             if ml1Greater bnt1.digits bnt2.digits
-            then bInt ((subMl bnt1.digits bnt2.digits), bnt1.isPos)
-            else bInt ((subMl bnt2.digits bnt1.digits), bnt2.isPos)
+            then bInt ((subMl bnt1.digits bnt2.digits), eq || bnt1.isPos)
+            else bInt ((subMl bnt2.digits bnt1.digits), eq || bnt2.isPos)
 
     let subBint (bnt1 : bInt) (bnt2 : bInt) =
         match bnt1.isPos, bnt2.isPos with
         | false, false | true, true ->
+            let eq = isEqual bnt1.digits bnt2.digits
             if ml1Greater bnt1.digits bnt2.digits
-            then bInt((subMl bnt1.digits bnt2.digits), bnt1.isPos)
-            else bInt ((subMl bnt2.digits bnt1.digits), not bnt1.isPos)
+            then bInt((subMl bnt1.digits bnt2.digits), eq || bnt1.isPos)
+            else bInt ((subMl bnt2.digits bnt1.digits), eq || not bnt1.isPos)
         | false, true | true, false -> bInt ((sumMl bnt1.digits bnt2.digits), bnt1.isPos)
 
     let multToNumMl (ml : MyList<_>) num =
@@ -140,7 +139,9 @@ module BigIntFunctions =
     let multBnt (bnt1 : bInt) (bnt2 : bInt) =
         match bnt1.isPos, bnt2.isPos with
         | true, true | false, false -> bInt( (multMl bnt1.digits bnt2.digits), true)
-        | true, false | false, true -> bInt( (multMl bnt1.digits bnt2.digits), false)
+        | true, false | false, true ->
+            let sign = (multMl bnt1.digits bnt2.digits) = First 0 
+            bInt( (multMl bnt1.digits bnt2.digits), sign)
         
     let select (big : MyList<_>) (small : MyList<_>) =
         let rec go (big : MyList<_>) (small : MyList<_>) (acc : MyList<_>) = 
@@ -192,13 +193,28 @@ module BigIntFunctions =
     let divBnt (bnt1 : bInt) (bnt2 : bInt) =
         match bnt1.isPos, bnt2.isPos with
         | true, true | false, false -> bInt( fst (divRemMl bnt1.digits bnt2.digits), true)
-        | true, false | false, true -> bInt( fst (divRemMl bnt1.digits bnt2.digits), false)
+        | true, false | false, true ->
+            let sign = fst (divRemMl bnt1.digits bnt2.digits) = First 0 
+            bInt( fst (divRemMl bnt1.digits bnt2.digits), sign)
         
     let remBnt (bnt1 : bInt) (bnt2 : bInt) =
         match bnt1.isPos, bnt2.isPos with
-        | true, true | false, false -> bInt( snd (divRemMl bnt1.digits bnt2.digits), true)
-        | true, false | false, true -> bInt( snd (divRemMl bnt1.digits bnt2.digits), false)
-       
+        | true, true -> bInt( snd (divRemMl bnt1.digits bnt2.digits), true)
+        | false, false ->
+            if ml1Greater bnt2.digits bnt1.digits then bnt1
+            elif isEqual bnt1.digits bnt2.digits then bInt (First 0, true)
+            else
+                let sign = snd (divRemMl bnt1.digits bnt2.digits) = First 0 
+                bInt( snd (divRemMl bnt1.digits bnt2.digits), sign)
+        | true, false ->
+            bInt( snd (divRemMl bnt1.digits bnt2.digits), true)
+        | false, true ->
+            if ml1Greater bnt2.digits bnt1.digits then
+                sumBint bnt1 (bInt ( (multMl (fst (divRemMl bnt1.digits bnt2.digits) ) bnt2.digits ), true))
+            else 
+                if (subMl bnt1.digits bnt2.digits = First 0) || ((snd (divRemMl bnt1.digits bnt2.digits)) = First 0)  then bInt (First 0, true)
+                else bInt (snd (divRemMl bnt1.digits bnt2.digits), false)
+                
     let absBnt (bnt : bInt) = bInt (bnt.digits, true)
 
     let toBinary (x : bInt) = 

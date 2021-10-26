@@ -1,14 +1,21 @@
 namespace BigIntCalculator
+
+open System
 open System.Collections.Generic
 open BigIntFunctions
 open FSharp.Text.Lexing
-    
-module Interpreter =
 
-    open System.Collections.Generic
-    open BigIntFunctions
-    open FSharp.Text.Lexing
-   
+[<AutoOpen>]
+module CliColors =
+    let complete = ConsoleColor.Magenta
+    let green = ConsoleColor.Green
+    let cyan = ConsoleColor.Cyan
+    let yellow = ConsoleColor.Yellow
+    let red = ConsoleColor.Red
+
+module Interpreter =
+    
+    let outputBuffer = "print"
     let rec processExpr (vDict:Dictionary<AST.VName,AST.Expression>) expr =
         match expr with
         | AST.Num n -> n
@@ -39,8 +46,13 @@ module Interpreter =
             match data with
             | AST.Num n ->
                 let num = bntToString n
-                pDict.["print"] <- (pDict.["print"] + (if num.[0] = '+' then num.[1..] else num) + "\n")
-            | _ -> failwith "Num expected"
+                if pDict.ContainsKey outputBuffer
+                then 
+                    pDict.[outputBuffer] <- (pDict.[outputBuffer] + (if num.[0] = '+' then num.[1..] else num) + "\n")
+                else
+                    pDict.Add (outputBuffer, (if num.[0] = '+' then num.[1..] else num) + "\n")
+            | _ ->
+                failwithf "Num expected, got: %A" data
         | AST.VDecl(v,e) ->
             if vDict.ContainsKey v
             then vDict.[v] <- AST.Num (processExpr vDict e)
@@ -51,8 +63,7 @@ module Interpreter =
         let vDict = Dictionary<_,_>()
         let pDict = Dictionary<_,_>()
         let varDict = Dictionary<_,_>()
-        pDict.Add("print", "")
-        let vD, pD = List.fold (fun (d1, d2) stmt -> processStmt d1 d2 stmt) (vDict, pDict) ast
+        let vD, _ = List.fold (fun (d1, d2) stmt -> processStmt d1 d2 stmt) (vDict, pDict) ast
         for i in vD.Keys do
             match vD.[i] with
             | AST.Num n -> varDict.[string i] <- bntToString n
@@ -62,9 +73,29 @@ module Interpreter =
     let calculate (ast:AST.Stmt list) =
         match ast.[0] with
         | AST.VDecl (_, e) -> processExpr (Dictionary<_,_>()) e
-        | _ -> failwith "unexpected statement"
+        | _ -> failwithf "Unexpected statement %A" ast.[0]
 
     let parse text =
         let lexbuf = LexBuffer<char>.FromString text
-        let parsed = Parser.start Lexer.tokenStream lexbuf
-        parsed
+        try
+            let parsed =
+                lexbuf
+                |> Parser.start Lexer.tokenStream
+            parsed
+        with errorMsg ->
+            // Prints colored err message
+            let pos = lexbuf.EndPos
+            let line = pos.Line
+            let column = pos.Column
+            let message = errorMsg.Message
+            let lastToken = String(lexbuf.Lexeme)
+            Console.ForegroundColor <- red 
+            printf "Parsing failed at: "
+            Console.ForegroundColor <- yellow
+            printfn "line %A, column %A;" (line+1) (column+1)
+            Console.ResetColor()
+            printfn "Last token %A" lastToken
+            Console.ForegroundColor <- cyan
+            printfn "Message %A" message
+            Console.ResetColor()
+            exit 1   

@@ -31,44 +31,24 @@ start: stmt {[$1]}
 
 stmt: KW_PRINT vname {AST.Print($2)}
     | KW_LET vname EQ expr {AST.VDecl($2,$4)}
-    | vname {failwith "parse error of variable name"}
-    | NUM {failwith "parse error of num" }
-    | LBR {failwith "parse error: of left brackets"}
-    | RBR {failwith "parse error of right brackets"}
-    | ABS {failwith "parse error of abs"} 
-    | SUM {failwith "parse error of sum"}
-    | MUL {failwith "parse error of mult"}
-    | DIV {failwith "parse error of div"}
-    | SUB {failwith "parse error of sub"}
-    | REM {failwith "parse error of rem"}
-    | POW {failwith "parse error of pow"}
-    | BIN {failwith "parse error of bin"}
 
 expr: rexpr {$1}
     | expr SUM rexpr {AST.Sum($1, $3)}
     | expr SUB rexpr {AST.Sub($1, $3)}
-    | KW_LET {failwith "parse error of let"}
-    | KW_PRINT {failwith "parse error of print"}
 
 rexpr: baseAndPow {$1}
     | rexpr MUL baseAndPow {AST.Mul($1, $3)}
     | rexpr DIV baseAndPow {AST.Div($1, $3)}
     | rexpr REM baseAndPow {AST.Rem($1, $3)}
-    | KW_LET {failwith "parse error of let"}
-    | KW_PRINT {failwith "parse error of print"}
 
 baseAndPow: power {$1}
     | baseAndPow POW power {AST.Pow($1, $3)}
-    | KW_LET {failwith "parse error of let"}
-    | KW_PRINT {failwith "parse error of print"}
     
 power: LBR expr RBR {$2}  
     | ABS expr ABS {AST.Abs $2}
     | NUM {AST.Num($1)}
     | vname {AST.NVar($1)} 
     | BIN expr {AST.Bin $2}
-    | KW_LET {failwith "parse error of let"}
-    | KW_PRINT {failwith "parse error of print"}
 
 vname: VNAME {AST.Var($1)}
 

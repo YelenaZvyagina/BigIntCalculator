@@ -21,7 +21,7 @@ module CalculatorTests =
         print w
         """ 
     let _, _, pD = run (parse example)
-    printfn "%s" pD.["print"]
+    printfn "%s" pD.[outputBuffer]
     printfn "Expected \n9\n-4\n5\n63"
 
 
@@ -58,10 +58,6 @@ module CalculatorTests =
                 let calc = "let x = 25 + 2 * ((36 / 2) - 6 / (3 * 2))"
                 let ansCalc = calculate (parse calc)
                 Expect.equal "59" (bntToString ansCalc) "Parenthesis parsing works incorrectly"
-            
-            testCase "Incorrect input test" <| fun _ ->                
-                let ex = "let x = -0009"
-                Expect.throws (fun _ -> (calculate (parse ex)) |> ignore) "Exception should be raised"
                 
             testCase "Calc test 1" <| fun _ ->
                 let calc = "let x = 2 * 5 + 22 - (55 / 5) + 3"

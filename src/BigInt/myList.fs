@@ -80,3 +80,5 @@ module MyList =
         | First x -> First x
         | Cons(h, t) -> t
         
+    let reverse (ml : MyList<int>) =
+        sysListToMyList ( List.rev (myListToSystemList ml) )

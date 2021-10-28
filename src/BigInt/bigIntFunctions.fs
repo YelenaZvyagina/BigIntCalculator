@@ -211,9 +211,9 @@ module BigIntFunctions =
         | false, true ->
             if ml1Greater bnt2.digits bnt1.digits then
                 sumBint bnt1 (bInt ( (multMl (fst (divRemMl bnt1.digits bnt2.digits) ) bnt2.digits ), true))
-            else 
-                if (subMl bnt1.digits bnt2.digits = First 0) || ((snd (divRemMl bnt1.digits bnt2.digits)) = First 0)  then bInt (First 0, true)
-                else bInt (snd (divRemMl bnt1.digits bnt2.digits), false)
+            elif 
+                (subMl bnt1.digits bnt2.digits = First 0) || ((snd (divRemMl bnt1.digits bnt2.digits)) = First 0)  then bInt (First 0, true)
+            else bInt (snd (divRemMl bnt1.digits bnt2.digits), false)
                 
     let absBnt (bnt : bInt) = bInt (bnt.digits, true)
 

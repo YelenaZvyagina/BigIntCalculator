@@ -39,13 +39,13 @@ module BigIntFunctionsTest =
         [<Tests>]
         let testsHeplers =
             testList "mylist functions and helpers" [
-                testProperty "isEqual test" <| fun _ -> 
-                    let x = bigIntegerToBigInt (genRandomBigInteger 20)
+                testProperty "isEqual test" <| fun n ->
+                    let x = bigIntegerToBigInt (genRandomBigInteger (abs n + 1) )
                     let y = x.digits
                     Expect.isTrue (isEqual x.digits y) "isEqual works incorrectly"
                     
-                testProperty "ml1Greater test" <| fun _ ->
-                    let x = bigIntegerToBigInt (genRandomBigInteger 20)
+                testProperty "ml1Greater test" <| fun n ->
+                    let x = bigIntegerToBigInt (genRandomBigInteger (abs n + 1) )
                     let z = x
                     let x1 = concat (First 1) x.digits
                     let z1 = concat (First 5) z.digits
@@ -54,32 +54,32 @@ module BigIntFunctionsTest =
                     let z2 = concat z.digits (First 8)
                     Expect.isTrue (ml1Greater z2 x2) "ml1Greater with diff last char works incorrectly"
                     
-                testProperty "strToBigint test" <| fun _ -> 
-                    let x = genRandomBigInteger 20
+                testProperty "strToBigint test" <| fun n -> 
+                    let x = genRandomBigInteger (abs n + 1)
                     let s = string x
                     let a = strToBigint s
                     let b = bigIntegerToBigInt x
                     Expect.isTrue (bntEqual a b) "str to bigint works incorrectly"
                     
-                testProperty "removeZeros test" <| fun _ -> 
-                    let zeros = 20
+                testProperty "removeZeros test" <| fun n -> 
+                    let zeros = abs n + 1
                     let zerList = sysListToMyList (List.init zeros (fun i -> i*0))
-                    let x = (bigIntegerToBigInt (genRandomBigInteger 20) ).digits
+                    let x = (bigIntegerToBigInt (genRandomBigInteger (abs n + 1) ) ).digits
                     let withzer = concat zerList x
-                    Expect.isTrue (isEqual x (removeZeros withzer)) "removezeros works incorrectly"
+                    Expect.isTrue (isEqual x (removeZeros withzer)) "removeZeros works incorrectly"
                     
-                testProperty "transferodd test" <| fun _ -> 
-                    let x = genRandomBigInteger 8
+                testProperty "transferOdd test" <| fun n ->
+                    let x = genRandomBigInteger (abs n % 10 + 1) 
                     let x2 = int x
                     let x1 = bigIntegerToBigInt x
                     let y1 = reverse (transferOdd (First x2) )
-                    Expect.isTrue (isEqual y1 (x1.digits)) "transferodd works incorrectly"
+                    Expect.isTrue (isEqual y1 (x1.digits)) "transferOdd works incorrectly"
                     
-                testProperty "becomeEqual test" <| fun _ -> 
-                    let x = (bigIntegerToBigInt (genRandomBigInteger 20) )
-                    let y = (bigIntegerToBigInt (genRandomBigInteger 20) )
+                testProperty "becomeEqual test" <| fun n -> 
+                    let x = (bigIntegerToBigInt (genRandomBigInteger (abs n + 1) ) )
+                    let y = (bigIntegerToBigInt (genRandomBigInteger (abs n + 1)) )
                     let res = (becomeEqual x.digits y.digits )
-                    Expect.isTrue ( (length x.digits) = (length (fst res) ) || (length y.digits) = (length (fst res) ) )  "becomeequal works incorrectly"
+                    Expect.isTrue ( (length x.digits) = (length (fst res) ) || (length y.digits) = (length (fst res) ) )  "becomeEqual works incorrectly"
             ]
             
 
@@ -87,33 +87,33 @@ module BigIntFunctionsTest =
         [<Tests>]
         let arFuncsTests =
             testList "test for arithmetical functions" [
-                testProperty "sum test" <| fun _ ->
-                   let x = genRandomBigInteger 20
-                   let z = genRandomBigInteger 20
+                testProperty "sum test" <| fun n ->
+                   let x = genRandomBigInteger (abs n + 1)
+                   let z = genRandomBigInteger (abs n + 1)
                    let s3 = (bigIntegerToBigInt (x + z) )
                    let s4 = (sumBint (bigIntegerToBigInt x) (bigIntegerToBigInt z))
                    Expect.isTrue (bntEqual s3 s4) "summ works incorrectly"
                   
-                testProperty "sub test" <| fun _ -> 
-                    let x = genRandomBigInteger 20
-                    let y = genRandomBigInteger 20
+                testProperty "sub test" <| fun n -> 
+                    let x = genRandomBigInteger (abs n + 1)
+                    let y = genRandomBigInteger (abs n + 1)
                     let s1 = (bigIntegerToBigInt (x - y))
                     let s2 = (subBint (bigIntegerToBigInt x) (bigIntegerToBigInt y))
                     Expect.isTrue (bntEqual s1 s2) "subtraction works incorrectly"
 
-                testProperty "mul test" <| fun _ ->
-                    let x = genRandomBigInteger 10
-                    let z = genRandomBigInteger 10
+                testProperty "mul test" <| fun n ->
+                    let x = genRandomBigInteger (abs n % 10 + 1) 
+                    let z = genRandomBigInteger (abs n % 10 + 1) 
                     let s3 = bigIntegerToBigInt (x * z)
                     let s4 = multBnt (bigIntegerToBigInt x) (bigIntegerToBigInt z)
                     Expect.isTrue (bntEqual s3 s4) "multiplication works incorrectly"
 
-                testProperty "div test" <| fun _ ->
-                    let x = genRandomBigInteger 10
-                    let y = genRandomBigInteger 10
+                testProperty "div test" <| fun n ->
+                    let x = genRandomBigInteger (abs n % 10 + 1) 
+                    let y = genRandomBigInteger (abs n % 10 + 1) 
                     if y = BigInteger 0
                     then
-                        let y1 = y + x
+                        let y1 = abs (y + x) + BigInteger 1
                         let s1 = bigIntegerToBigInt (x / y1)
                         let s2 = divBnt (bigIntegerToBigInt x) (bigIntegerToBigInt y1)
                         Expect.isTrue (bntEqual s1 s2) "division works incorrectly"
@@ -122,36 +122,35 @@ module BigIntFunctionsTest =
                         let s2 = divBnt (bigIntegerToBigInt x) (bigIntegerToBigInt y)
                         Expect.isTrue (bntEqual s1 s2) "division works incorrectly"
 
-                testProperty "remainder test" <| fun _ ->
-                    let x = genRandomBigInteger 10
-                    let y = genRandomBigInteger 10
+                testProperty "remainder test" <| fun n ->
+                    let x = genRandomBigInteger (abs n % 10 + 1) 
+                    let y = genRandomBigInteger (abs n % 10 + 1) 
                     if y = BigInteger 0
                     then
-                        let y1 = y + x
+                        let y1 = abs (y + x) + BigInteger 1
                         let s1 = bigIntegerToBigInt (x % y1)
                         let s2 = remBnt (bigIntegerToBigInt x) (bigIntegerToBigInt y1)
-                        Expect.isTrue (bntEqual s1 s2) "finding remainder works incorrectly"
-                    else 
+                        Expect.isTrue (bntEqual s1 s2) "rem works incorrectly"
+                    else
                         let s1 = bigIntegerToBigInt (x % y)
                         let s2 = remBnt (bigIntegerToBigInt x) (bigIntegerToBigInt y)
-                        Expect.isTrue (bntEqual s1 s2) "finding remainder works incorrectly"   
+                        Expect.isTrue (bntEqual s1 s2) "rem works incorrectly"  
 
-                testProperty "pow test" <| fun _ ->
-                    let x = genRandomBigInteger 5
+                testProperty "pow test" <| fun n ->
+                    let x = genRandomBigInteger (abs n % 5 + 1) 
                     let y = rand.Next(5)
                     let s = BigInteger.Pow(x, y) 
                     let s1 = toPower (bigIntegerToBigInt x) (bigIntegerToBigInt (BigInteger y)) 
                     Expect.isTrue (bntEqual (bigIntegerToBigInt s) s1) "pow works incorrectly"
 
-                testProperty "toBinary test" <| fun _ ->
-                    let x = rand.Next(10000) 
-                    let s = BigInteger (intToBinary x)
-                    let x1 = bigIntegerToBigInt (BigInteger x)
+                testProperty "toBinary test" <| fun n ->
+                    let s = BigInteger (intToBinary (abs n + 1))
+                    let x1 = bigIntegerToBigInt (BigInteger (abs n + 1))
                     let sb = toBinary x1
                     Expect.isTrue (bntEqual (bigIntegerToBigInt s) sb) "toBinary works incorrectly"
 
-                testProperty "Unary minus test" <| fun _ ->
-                    let x = genRandomBigInteger 20
+                testProperty "Unary minus test" <| fun n ->
+                    let x = genRandomBigInteger (abs n + 1)
                     let minusX = x * (BigInteger -1)
                     let expAns = reverseSign (bigIntegerToBigInt x)
                     Expect.isTrue (bntEqual (bigIntegerToBigInt minusX) expAns) "reverseSign works incorrectly"
@@ -178,7 +177,7 @@ module BigIntFunctionsTest =
                     let x = (rand.Next(10)) 
                     let x1 = strToBigint (string x)
                     let y = reverse (transferOdd x1.digits )
-                    Expect.isTrue (isEqual y (First x) ) "transferodd works incorrectly"
+                    Expect.isTrue (isEqual y (First x) ) "transfeOodd works incorrectly"
                     
                 testProperty "becomeEqual test" <| fun _ ->
                     let x = int64 ( (rand.Next()) * Int32.MaxValue )
@@ -187,7 +186,7 @@ module BigIntFunctionsTest =
                     let y1 = strToBigint (string y)
                     let comp = length x1.digits
                     let res = (becomeEqual x1.digits y1.digits )
-                    Expect.isTrue ( length (snd res) = comp )  "becomeequal works incorrectly"
+                    Expect.isTrue ( length (snd res) = comp )  "becomeEqual works incorrectly"
             ]
             
         

@@ -6,12 +6,26 @@ open BigIntFunctions
 open FSharp.Text.Lexing
 
 [<AutoOpen>]
+// refers to Interpreter but can be accessed externally
 module CliColors =
+    // module that describes error highlighting
     let complete = ConsoleColor.Magenta
     let green = ConsoleColor.Green
     let cyan = ConsoleColor.Cyan
     let yellow = ConsoleColor.Yellow
     let red = ConsoleColor.Red
+    
+    let errorHighlight line col msg lastToken =
+        Console.ForegroundColor <- red 
+        printf "Parsing failed at: "
+        Console.ForegroundColor <- yellow
+        printfn "line %A, column %A;" (line+1) (col+1)
+        Console.ResetColor()
+        printfn "Last token %A" lastToken
+        Console.ForegroundColor <- cyan
+        printfn "Message %A" msg
+        Console.ResetColor()
+        
 
 module Interpreter =
     
@@ -67,7 +81,7 @@ module Interpreter =
         for i in vD.Keys do
             match vD.[i] with
             | AST.Num n -> varDict.[string i] <- bntToString n
-            | _ -> failwith "impossible case"
+            | _ -> failwithf "impossible case %A" vD.[i]
         vD, varDict, pDict
 
     let calculate (ast:AST.Stmt list) =
@@ -89,13 +103,5 @@ module Interpreter =
             let column = pos.Column
             let message = errorMsg.Message
             let lastToken = String(lexbuf.Lexeme)
-            Console.ForegroundColor <- red 
-            printf "Parsing failed at: "
-            Console.ForegroundColor <- yellow
-            printfn "line %A, column %A;" (line+1) (column+1)
-            Console.ResetColor()
-            printfn "Last token %A" lastToken
-            Console.ForegroundColor <- cyan
-            printfn "Message %A" message
-            Console.ResetColor()
+            errorHighlight line column message lastToken
             exit 1   

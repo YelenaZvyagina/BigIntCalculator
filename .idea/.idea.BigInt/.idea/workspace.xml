@@ -8,21 +8,12 @@
     <projectFile profileName="SampleApp">../LongArithm/src/SampleApp/SampleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="tests fixed, error messages processing added">
+    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt.Cli/BigInt.Cli.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt.Cli/BigInt.Cli.fsproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt.Cli/Program.fs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BigInt.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BigInt.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/Lexer.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Lexer.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/Lexer.fsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Lexer.fsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/Main.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt.Cli/Main.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/Parser.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Parser.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/Parser.fsy" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Parser.fsy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/myList.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/myList.fs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/calculatorTests.fs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/calculatorTests.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +59,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/SampleApp/SampleApp.csproj" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected=".NET Project.BigInt.Cli">
+  <component name="RunManager" selected=".NET Project.BigInt.UnitTests">
     <configuration name="BigInt.Cli" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/BigInt.Cli/bin/Debug/net5.0/BigInt.Cli" />
-      <option name="PROGRAM_PARAMETERS" value="--compute --inputfile $PROJECT_DIR$/src/BigInt/test.txt" />
+      <option name="PROGRAM_PARAMETERS" value="--compute --inputfile $PROJECT_DIR$/src/text.txt" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/BigInt.Cli/bin/Debug/net5.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -177,7 +168,9 @@
       <workItem from="1635101355756" duration="523000" />
       <workItem from="1635105761132" duration="3483000" />
       <workItem from="1635166494702" duration="27698000" />
-      <workItem from="1635251786734" duration="2331000" />
+      <workItem from="1635251786734" duration="3162000" />
+      <workItem from="1635263688146" duration="4513000" />
+      <workItem from="1635410332440" duration="7194000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -207,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635088029698</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="tests fixed, error processing added">
+      <created>1635254829133</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1635254829133</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,6 +229,7 @@
     <MESSAGE value="tests on 1nt64 added, fixes added" />
     <MESSAGE value="parser fix" />
     <MESSAGE value="tests fixed, error messages processing added" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests fixed, error messages processing added" />
+    <MESSAGE value="tests fixed, error processing added" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests fixed, error processing added" />
   </component>
 </project>

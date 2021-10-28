@@ -81,13 +81,13 @@ module Interpreter =
         for i in vD.Keys do
             match vD.[i] with
             | AST.Num n -> varDict.[string i] <- bntToString n
-            | _ -> failwithf "impossible case %A" vD.[i]
+            | _ -> failwithf "Num expected, got: %A" vD.[i]
         vD, varDict, pDict
 
     let calculate (ast:AST.Stmt list) =
         match ast.[0] with
         | AST.VDecl (_, e) -> processExpr (Dictionary<_,_>()) e
-        | _ -> failwithf "Unexpected statement %A" ast.[0]
+        | _ -> failwithf "Variable declaration expected, got %A" ast.[0]
 
     let parse text =
         let lexbuf = LexBuffer<char>.FromString text

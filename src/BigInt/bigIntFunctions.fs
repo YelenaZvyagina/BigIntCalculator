@@ -240,10 +240,17 @@ module BigIntFunctions =
             BigInt( snd (divRemMl bnt1.digits bnt2.digits), true)
         | false, true ->
             if ml1Greater bnt2.digits bnt1.digits then
+<<<<<<< HEAD
                 sumBint bnt1 (BigInt ( (multMl (fst (divRemMl bnt1.digits bnt2.digits) ) bnt2.digits ), true))
             elif 
                 (subMl bnt1.digits bnt2.digits = First 0) || ((snd (divRemMl bnt1.digits bnt2.digits)) = First 0)  then BigInt (First 0, true)
             else BigInt (snd (divRemMl bnt1.digits bnt2.digits), false)
+=======
+                sumBint bnt1 (bInt ( (multMl (fst (divRemMl bnt1.digits bnt2.digits) ) bnt2.digits ), true))
+            elif 
+                (subMl bnt1.digits bnt2.digits = First 0) || ((snd (divRemMl bnt1.digits bnt2.digits)) = First 0)  then bInt (First 0, true)
+            else bInt (snd (divRemMl bnt1.digits bnt2.digits), false)
+>>>>>>> fixes, using property arguments in tests added
                 
     let absBnt (bnt : BigInt) = BigInt (bnt.digits, true)
 

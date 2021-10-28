@@ -10,10 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BigInt.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BigInt.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +167,8 @@
       <workItem from="1635166494702" duration="27698000" />
       <workItem from="1635251786734" duration="3162000" />
       <workItem from="1635263688146" duration="4513000" />
-      <workItem from="1635410332440" duration="7194000" />
+      <workItem from="1635410332440" duration="7936000" />
+      <workItem from="1635421787861" duration="849000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -207,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635254829133</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixes, using property arguments in tests added">
+      <created>1635417795376</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1635417795376</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,6 +235,7 @@
     <MESSAGE value="parser fix" />
     <MESSAGE value="tests fixed, error messages processing added" />
     <MESSAGE value="tests fixed, error processing added" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests fixed, error processing added" />
+    <MESSAGE value="fixes, using property arguments in tests added" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes, using property arguments in tests added" />
   </component>
 </project>

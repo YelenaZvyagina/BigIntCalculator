@@ -217,11 +217,11 @@ module BigIntFunctionsTest =
                    let comp = strToBigint (string subNums)
                    Expect.isTrue (bntEqual subBint comp) "subtraction works incorrectly"
                     
-                testProperty "mul test" <| fun (x : int64, y : int64) -> 
-                    let x1 = strToBigint (string x)
-                    let y1 = strToBigint (string y)
+                testProperty "mul test" <| fun (x, y) -> 
+                    let x1 = strToBigint (string (x % 10000) )
+                    let y1 = strToBigint (string (y % 10000) )
                     let mulBint = multBnt x1 y1
-                    let mulNums = x * y
+                    let mulNums = int64 (x * y)
                     let comp = strToBigint (string mulNums)
                     Expect.isTrue (bntEqual mulBint comp) "multiplication works incorrectly"
                     

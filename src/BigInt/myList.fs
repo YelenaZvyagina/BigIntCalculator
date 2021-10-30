@@ -59,16 +59,6 @@ module MyList =
             then go (_go ls) (n + 1)
             else ls
         go l 0
-
-    let isEqual (ml1 : MyList<_>) (ml2 : MyList<_>) =
-        if length ml1 <> length ml2 then false
-        else
-            let rec go (ml1 : MyList<_>) (ml2 : MyList<_>) = 
-                match ml1, ml2 with
-                | First x, First y -> x = y
-                | Cons (h1, t1), Cons (h2, t2) -> (h1 = h2) && (go t1 t2)
-                | _ -> failwith "this case cannot be achieved"
-            go ml1 ml2  
             
     let getHead (ml : MyList<_>) =
         match ml with

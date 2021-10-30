@@ -10,7 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/myList.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/myList.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/SampleApp/SampleApp.csproj" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected=".NET Project.BigInt.UnitTests">
+  <component name="RunManager" selected=".NET Project.BigInt.Cli">
     <configuration name="BigInt.Cli" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/BigInt.Cli/bin/Debug/net5.0/BigInt.Cli" />
       <option name="PROGRAM_PARAMETERS" value="--compute --inputfile $PROJECT_DIR$/src/text.txt" />
@@ -169,7 +170,9 @@
       <workItem from="1635263688146" duration="4513000" />
       <workItem from="1635410332440" duration="7936000" />
       <workItem from="1635421787861" duration="1552000" />
-      <workItem from="1635514368393" duration="1167000" />
+      <workItem from="1635514368393" duration="1985000" />
+      <workItem from="1635547703150" duration="675000" />
+      <workItem from="1635600560291" duration="6554000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -220,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635422819431</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixes">
+      <created>1635515575682</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1635515575682</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,13 +248,13 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="refactor" />
-    <MESSAGE value="fixes" />
     <MESSAGE value="tests on 1nt64 added, fixes added" />
     <MESSAGE value="parser fix" />
     <MESSAGE value="tests fixed, error messages processing added" />
     <MESSAGE value="tests fixed, error processing added" />
     <MESSAGE value="fixes, using property arguments in tests added" />
     <MESSAGE value="failwith messages fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="failwith messages fix" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>

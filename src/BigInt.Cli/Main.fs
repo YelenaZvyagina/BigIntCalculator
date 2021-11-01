@@ -5,7 +5,7 @@ module Main =
 
     open Argu
     open BigIntCalculator
-    open toTree
+    open ToTree
 
     type CLIArguments =
         | InputFile of file:string

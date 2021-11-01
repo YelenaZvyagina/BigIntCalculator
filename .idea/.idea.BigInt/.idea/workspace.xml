@@ -9,8 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="fix">
-      <change beforePath="$PROJECT_DIR$/.paket/Paket.Restore.targets" beforeDir="false" afterPath="$PROJECT_DIR$/.paket/Paket.Restore.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/toTree.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/toTree.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt.Cli/Main.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt.Cli/Main.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +34,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d786d2e1134ee7f1b7f1f50cc7fa19a0d3800/da/08d152eb/Expect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/yelena/study/BigInt/src/BigInt/toTree.fs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4badc7840904ff2d493120e6add7407712600/c6/45782c42/Implementation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/yelena/study/BigInt/src/BigInt/AST.fs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -266,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635789910501</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix">
+      <created>1635793222126</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1635793222126</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

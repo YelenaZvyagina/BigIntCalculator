@@ -10,8 +10,14 @@
   <component name="ChangeListManager">
     <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt.Cli/Main.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt.Cli/Main.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/AST.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/AST.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/Parser.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Parser.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/Parser.fsi" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Parser.fsi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/Parser.fsy" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Parser.fsy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/myList.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/myList.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/toTree.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/toTree.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,15 +41,14 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/SampleApp/App.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/SampleApp/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/SampleApp/Pages/Index.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/SampleApp/Pages/DiffEditor.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/yelena/study/BigInt/src/BigInt.Cli/Main.fs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d786d2e1134ee7f1b7f1f50cc7fa19a0d3800/da/08d152eb/Expect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/yelena/study/BigInt/src/BigInt/toTree.fs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4badc7840904ff2d493120e6add7407712600/c6/45782c42/Implementation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/SampleApp/_Imports.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/yelena/study/BigInt/src/BigInt/AST.fs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zsT6BNlTVaiPsaO3GtYw5l9mPP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

@@ -5,7 +5,8 @@ module Main =
 
     open Argu
     open BigIntCalculator
-    open toTree
+    open ToTree
+    open Interpreter
 
     type CLIArguments =
         | InputFile of file:string
@@ -31,11 +32,11 @@ module Main =
                 if p.Contains(InputFile) then System.IO.File.ReadAllText (results.GetResult InputFile)
                 elif p.Contains(InputString) then results.GetResult InputString
                 else failwith "No input code given"
-            let ast = Interpreter.parse input
+            let ast = parse input
             if p.Contains(Compute)
             then
-                let _, _, pD = Interpreter.run ast
-                printfn "%s" pD.["print"]
+                let _, _, pD = run ast
+                printfn "%s" pD.[outputBuffer]
             if p.Contains(ToDot) then toDot ast (results.GetResult ToDot)
         
         0

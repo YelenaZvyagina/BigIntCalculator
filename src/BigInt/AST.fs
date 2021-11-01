@@ -6,7 +6,7 @@ module AST =
     type VName = Var of string
 
     type Expression =
-        | Num of bInt
+        | Num of BigInt
         | NVar of VName
         | Sum of Expression * Expression
         | Sub of Expression * Expression

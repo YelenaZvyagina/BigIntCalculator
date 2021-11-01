@@ -4,7 +4,7 @@ module BigIntFunctions =
     open System
     open MyList
 
-    type bInt =
+    type BigInt =
         val digits : MyList<int>
         val isPos : Boolean
         new (lst, isneg) = {digits = lst; isPos = isneg}
@@ -45,18 +45,18 @@ module BigIntFunctions =
             | Cons(h, t) -> if h = 0 then go t else Cons (h, t)
         go ml
         
-    let reverseSign (bnt : bInt) =
+    let reverseSign (bnt : BigInt) =
         if bnt.digits = First 0
         then bnt
         else
             let sign = not bnt.isPos
-            bInt (bnt.digits, sign)
+            BigInt (bnt.digits, sign)
         
-    let isOdd (bnt : bInt) =
+    let isOdd (bnt : BigInt) =
         let rev = reverse bnt.digits
         match rev with
-        | First x -> not (x % 2 = 0) 
-        | Cons (h, t) -> not (h % 2 = 0) 
+        | First x -> x % 2 <> 0 
+        | Cons (h, _) -> h % 2 <> 0 
         
     let zeroComplete (ml : MyList<_>) num toEnd =
         let temp = List.init num (fun i -> i*0)
@@ -84,7 +84,7 @@ module BigIntFunctions =
            | Cons (h, t) -> Cons ( ( (h + acc) % 10), ( go t ((acc + h) / 10) ))
         go ml 0
 
-    let bntEqual (bnt1 : bInt) (bnt2 : bInt) =
+    let bntEqual (bnt1 : BigInt) (bnt2 : BigInt) =
         isEqual bnt1.digits bnt2.digits && bnt1.isPos = bnt2.isPos
 
     let sumMl (ml1 : MyList<_>) (ml2 : MyList<_>) = 
@@ -108,24 +108,24 @@ module BigIntFunctions =
             | _ -> failwith "this case cannot be achieved"
         removeZeros (reverse (go (reverse ml3) (reverse ml4) 0) )
 
-    let sumBint (bnt1 : bInt) (bnt2 : bInt) =
+    let sumBint (bnt1 : BigInt) (bnt2 : BigInt) =
         match bnt1.isPos, bnt2.isPos with
-        | false, false -> bInt((sumMl bnt1.digits bnt2.digits), false)
-        | true, true -> bInt((sumMl bnt1.digits bnt2.digits), true)
+        | false, false -> BigInt((sumMl bnt1.digits bnt2.digits), false)
+        | true, true -> BigInt((sumMl bnt1.digits bnt2.digits), true)
         | false, true | true, false ->
             let eq = isEqual bnt1.digits bnt2.digits
             if ml1Greater bnt1.digits bnt2.digits
-            then bInt ((subMl bnt1.digits bnt2.digits), eq || bnt1.isPos)
-            else bInt ((subMl bnt2.digits bnt1.digits), eq || bnt2.isPos)
+            then BigInt ((subMl bnt1.digits bnt2.digits), eq || bnt1.isPos)
+            else BigInt ((subMl bnt2.digits bnt1.digits), eq || bnt2.isPos)
 
-    let subBint (bnt1 : bInt) (bnt2 : bInt) =
+    let subBint (bnt1 : BigInt) (bnt2 : BigInt) =
         match bnt1.isPos, bnt2.isPos with
         | false, false | true, true ->
             let eq = isEqual bnt1.digits bnt2.digits
             if ml1Greater bnt1.digits bnt2.digits
-            then bInt((subMl bnt1.digits bnt2.digits), eq || bnt1.isPos)
-            else bInt ((subMl bnt2.digits bnt1.digits), eq || not bnt1.isPos)
-        | false, true | true, false -> bInt ((sumMl bnt1.digits bnt2.digits), bnt1.isPos)
+            then BigInt((subMl bnt1.digits bnt2.digits), eq || bnt1.isPos)
+            else BigInt ((subMl bnt2.digits bnt1.digits), eq || not bnt1.isPos)
+        | false, true | true, false -> BigInt ((sumMl bnt1.digits bnt2.digits), bnt1.isPos)
 
     let multToNumMl (ml : MyList<_>) num =
         let rec go (ml : MyList<_>) num =
@@ -146,12 +146,12 @@ module BigIntFunctions =
                 go ml1 t1 (acc + 1.0) (removeZeros temp)
         (go ml3 (reverse ml4) 0.0 (First 0))
         
-    let multBnt (bnt1 : bInt) (bnt2 : bInt) =
+    let multBnt (bnt1 : BigInt) (bnt2 : BigInt) =
         match bnt1.isPos, bnt2.isPos with
-        | true, true | false, false -> bInt( (multMl bnt1.digits bnt2.digits), true)
+        | true, true | false, false -> BigInt( (multMl bnt1.digits bnt2.digits), true)
         | true, false | false, true ->
             let sign = (multMl bnt1.digits bnt2.digits) = First 0 
-            bInt( (multMl bnt1.digits bnt2.digits), sign)
+            BigInt( (multMl bnt1.digits bnt2.digits), sign)
         
     let select (big : MyList<_>) (small : MyList<_>) =
         let rec go (big : MyList<_>) (small : MyList<_>) (acc : MyList<_>) = 
@@ -175,7 +175,7 @@ module BigIntFunctions =
                     if ml1Greater (reverse (transferOdd (First h))) small
                     then
                         let q = (select (reverse (transferOdd (First h))) small )
-                        let r = subMl (reverse (transferOdd (First h)))  ( (multMl small q))
+                        let r = subMl (reverse (transferOdd (First h)))  (multMl small q)
                         match r with
                         | First x ->
                             if x = 0 then go t small (concat res q)
@@ -185,7 +185,7 @@ module BigIntFunctions =
                                 | Cons (ht, tt) ->
                                     let l = Cons ((x*10 + ht), tt)
                                     go l small (concat res q)
-                        | Cons (hr, tr) ->
+                        | Cons _ ->
                              let fstR = toFirst r  
                              match t with
                                 | First onet -> go (First (fstR*10 + onet) ) small (concat res q)
@@ -200,46 +200,46 @@ module BigIntFunctions =
             let r = subMl ml1 (multMl d ml2)
             (removeZeros (getTail d), r)
                                      
-    let divBnt (bnt1 : bInt) (bnt2 : bInt) =
+    let divBnt (bnt1 : BigInt) (bnt2 : BigInt) =
         match bnt1.isPos, bnt2.isPos with
-        | true, true | false, false -> bInt( fst (divRemMl bnt1.digits bnt2.digits), true)
+        | true, true | false, false -> BigInt( fst (divRemMl bnt1.digits bnt2.digits), true)
         | true, false | false, true ->
             let sign = fst (divRemMl bnt1.digits bnt2.digits) = First 0 
-            bInt( fst (divRemMl bnt1.digits bnt2.digits), sign)
+            BigInt( fst (divRemMl bnt1.digits bnt2.digits), sign)
         
-    let remBnt (bnt1 : bInt) (bnt2 : bInt) =
+    let remBnt (bnt1 : BigInt) (bnt2 : BigInt) =
         match bnt1.isPos, bnt2.isPos with
-        | true, true -> bInt( snd (divRemMl bnt1.digits bnt2.digits), true)
+        | true, true -> BigInt( snd (divRemMl bnt1.digits bnt2.digits), true)
         | false, false ->
             if ml1Greater bnt2.digits bnt1.digits then bnt1
-            elif isEqual bnt1.digits bnt2.digits then bInt (First 0, true)
+            elif isEqual bnt1.digits bnt2.digits then BigInt (First 0, true)
             else
                 let sign = snd (divRemMl bnt1.digits bnt2.digits) = First 0 
-                bInt( snd (divRemMl bnt1.digits bnt2.digits), sign)
+                BigInt( snd (divRemMl bnt1.digits bnt2.digits), sign)
         | true, false ->
-            bInt( snd (divRemMl bnt1.digits bnt2.digits), true)
+            BigInt( snd (divRemMl bnt1.digits bnt2.digits), true)
         | false, true ->
             if ml1Greater bnt2.digits bnt1.digits then
-                sumBint bnt1 (bInt ( (multMl (fst (divRemMl bnt1.digits bnt2.digits) ) bnt2.digits ), true))
+                sumBint bnt1 (BigInt ( (multMl (fst (divRemMl bnt1.digits bnt2.digits) ) bnt2.digits ), true))
             elif 
-                (subMl bnt1.digits bnt2.digits = First 0) || ((snd (divRemMl bnt1.digits bnt2.digits)) = First 0)  then bInt (First 0, true)
-            else bInt (snd (divRemMl bnt1.digits bnt2.digits), false)
+                (subMl bnt1.digits bnt2.digits = First 0) || ((snd (divRemMl bnt1.digits bnt2.digits)) = First 0)  then BigInt (First 0, true)
+            else BigInt (snd (divRemMl bnt1.digits bnt2.digits), false)
                 
-    let absBnt (bnt : bInt) = bInt (bnt.digits, true)
+    let absBnt (bnt : BigInt) = BigInt (bnt.digits, true)
 
-    let toBinary (x : bInt) = 
+    let toBinary (x : BigInt) = 
         let rec go l r =
             match l with
             | First 0 -> r
             | _ ->
-                let divd = divBnt (bInt(l, true)) (bInt(First 2, true))
-                let rem = remBnt (bInt(l, true)) (bInt(First 2, true))
+                let divd = divBnt (BigInt(l, true)) (BigInt(First 2, true))
+                let rem = remBnt (BigInt(l, true)) (BigInt(First 2, true))
                 go divd.digits (Cons(getHead rem.digits, r))
-        let divd = divBnt (bInt (x.digits, true)) (bInt (First 2, true))
-        let rem = remBnt (bInt (x.digits, true)) (bInt (First 2, true))
-        bInt (go divd.digits (First (getHead rem.digits)), x.isPos)
+        let divd = divBnt (BigInt (x.digits, true)) (BigInt (First 2, true))
+        let rem = remBnt (BigInt (x.digits, true)) (BigInt (First 2, true))
+        BigInt (go divd.digits (First (getHead rem.digits)), x.isPos)
 
-    let toPower (bnt : bInt) (num : bInt) =
+    let toPower (bnt : BigInt) (num : BigInt) =
         if not num.isPos then failwith "the power should be positive"
         let rec go (ml : MyList<_>) (pow : MyList<_>) =
             match pow with
@@ -251,15 +251,15 @@ module BigIntFunctions =
                 let temp1 = multMl temp temp
                 if rem = First 0 then temp1 else (multMl temp1 ml)
         match bnt.isPos with
-        | true -> bInt ((go bnt.digits num.digits), true)
-        | false -> if isOdd num then bInt ((go bnt.digits num.digits), true) else bInt ((go bnt.digits num.digits), false)
+        | true -> BigInt ((go bnt.digits num.digits), true)
+        | false -> if isOdd num then BigInt ((go bnt.digits num.digits), true) else BigInt ((go bnt.digits num.digits), false)
            
     let strToBigint (s : String) =
-        let pos = not (s.[0] = '-') 
+        let pos = s.[0] <> '-' 
         if s.Length = 1 then
             let lst = [(int s.[0] - int '0')]
             let ml = sysListToMyList lst
-            bInt (ml, true)
+            BigInt (ml, true)
         else 
             let list = 
                 [
@@ -272,9 +272,9 @@ module BigIntFunctions =
                     let b = (First (int s.[0] - int '0'))
                     concat b (sysListToMyList list)
                 else (sysListToMyList list)
-            bInt (ml, pos)
+            BigInt (ml, pos)
         
-    let bntToString (bnt : bInt) =
+    let bntToString (bnt : BigInt) =
         let s = (myListToSystemList bnt.digits)
         let convertToString l = l |> List.map (fun i -> i.ToString()) |> String.concat ""
         if not bnt.isPos then "-" + (convertToString s)

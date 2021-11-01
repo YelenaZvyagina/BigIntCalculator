@@ -4,7 +4,7 @@ open BigIntCalculator
 
 %start start
 
-%token <BigIntFunctions.bInt> NUM
+%token <BigIntFunctions.BigInt> NUM
 %token SUM
 %token SUB
 %token MUL

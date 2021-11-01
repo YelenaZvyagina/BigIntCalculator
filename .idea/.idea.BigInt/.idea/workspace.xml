@@ -8,10 +8,7 @@
     <projectFile profileName="SampleApp">../LongArithm/src/SampleApp/SampleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/Parser.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Parser.fs" afterDir="false" />
-    </list>
+    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,7 +169,7 @@
       <workItem from="1635673940208" duration="95000" />
       <workItem from="1635705490079" duration="6000" />
       <workItem from="1635717379739" duration="445000" />
-      <workItem from="1635779373462" duration="6607000" />
+      <workItem from="1635779373462" duration="7263000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -258,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635788793049</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix">
+      <created>1635789910501</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1635789910501</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,6 +290,7 @@
     <MESSAGE value="docs added" />
     <MESSAGE value="linter added" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>

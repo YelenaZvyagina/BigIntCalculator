@@ -8,113 +8,12 @@
     <projectFile profileName="SampleApp">../LongArithm/src/SampleApp/SampleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docs.yml" afterDir="false" />
+    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="docs added">
+      <change beforePath="$PROJECT_DIR$/.config/dotnet-tools.json" beforeDir="false" afterPath="$PROJECT_DIR$/.config/dotnet-tools.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BigInt.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BigInt.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_lib/Fornax.Core.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/config.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/content/explanations/overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/content/explanations/some-post.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/content/how-tos/diagrams.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/content/how-tos/script.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/content/how-tos/somePostWithCode.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/content/tutorials/how-to-start.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/content/tutorials/some-post.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/generators/apiref.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/generators/lunr.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/generators/page.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/generators/partials/footer.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/generators/partials/header.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/generators/partials/layout.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/generators/partials/menu.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/loaders/apirefloader.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/loaders/contentloader.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/loaders/copyloader.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/loaders/globalloader.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/loaders/literalloader.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/loaders/pageloader.fsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/atom-one-dark-reasonable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/auto-complete.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/featherlight.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/fontawesome-all.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/hugo-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/hybrid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/nucleus.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/perfect-scrollbar.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/tags.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/theme-blue.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/theme-green.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/theme-red.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/tips.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Inconsolata.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Inconsolata.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Inconsolata.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Inconsolata.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-Normal-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-Normal-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-Normal-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-Normal-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-Normal-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-UltraLight-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-UltraLight-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-UltraLight-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-UltraLight-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Novecentosanswide-UltraLight-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_200.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_200.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_200.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_200.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_200.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_300.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_300.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_300.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_300.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_300.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_500.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_500.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_500.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_500.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/fonts/Work_Sans_500.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/images/clippy.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/images/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/images/gopher-404.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/auto-complete.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/clipboard.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/featherlight.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/hugo-learn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/jquery.sticky.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/learn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/lunr.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/modernizr.custom-3.6.0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/perfect-scrollbar.jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/perfect-scrollbar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/tips.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/mermaid/mermaid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/mermaid/mermaid.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/mermaid/mermaid.forest.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/mermaid/mermaid.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-brands-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-brands-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-brands-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-brands-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-brands-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-regular-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-regular-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-regular-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-regular-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-regular-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-solid-900.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-solid-900.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-solid-900.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-solid-900.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/webfonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.paket/Paket.Restore.targets" beforeDir="false" afterPath="$PROJECT_DIR$/.paket/Paket.Restore.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paket.dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/paket.dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paket.lock" beforeDir="false" afterPath="$PROJECT_DIR$/paket.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +174,7 @@
       <workItem from="1635673940208" duration="95000" />
       <workItem from="1635705490079" duration="6000" />
       <workItem from="1635717379739" duration="445000" />
-      <workItem from="1635779373462" duration="2228000" />
+      <workItem from="1635779373462" duration="3280000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -340,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635610436213</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="docs added">
+      <created>1635782370948</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1635782370948</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -366,6 +272,7 @@
     <MESSAGE value="failwith messages fix" />
     <MESSAGE value="fixes" />
     <MESSAGE value="fixes of 'isEqual' location" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes of 'isEqual' location" />
+    <MESSAGE value="docs added" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs added" />
   </component>
 </project>

@@ -5,7 +5,6 @@ module BigIntFunctions =
     open MyList
 
     type BigInt =
-
         val digits : MyList<int>
         val isPos : Boolean
         new (lst, isneg) = {digits = lst; isPos = isneg}

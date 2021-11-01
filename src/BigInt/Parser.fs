@@ -17,7 +17,7 @@ type token =
   | EQ
   | KW_PRINT
   | KW_LET
-  | VNAME of (string)
+  | VNAME of string
   | BIN
   | POW
   | REM
@@ -25,7 +25,7 @@ type token =
   | MUL
   | SUB
   | SUM
-  | NUM of (BigIntFunctions.BigInt)
+  | NUM of BigIntFunctions.BigInt
 // This type is used to give symbolic names to token indexes, useful for error messages
 type tokenId = 
     | TOKEN_EOF

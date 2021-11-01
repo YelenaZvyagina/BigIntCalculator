@@ -8,12 +8,9 @@
     <projectFile profileName="SampleApp">../LongArithm/src/SampleApp/SampleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="linter added">
+    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="fixes">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/AST.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/AST.fs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BigInt/Parser.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Parser.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/bigIntFunctionsTest.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d786d2e1134ee7f1b7f1f50cc7fa19a0d3800/da/08d152eb/Expect.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4badc7840904ff2d493120e6add7407712600/c6/45782c42/Implementation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/yelena/study/BigInt/src/BigInt/AST.fs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zsT6BNlTVaiPsaO3GtYw5l9mPP" />
   <component name="ProjectViewState">
@@ -174,7 +172,7 @@
       <workItem from="1635673940208" duration="95000" />
       <workItem from="1635705490079" duration="6000" />
       <workItem from="1635717379739" duration="445000" />
-      <workItem from="1635779373462" duration="5582000" />
+      <workItem from="1635779373462" duration="6607000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -253,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635785942021</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixes">
+      <created>1635788793049</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1635788793049</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,10 +282,10 @@
     <MESSAGE value="tests fixed, error processing added" />
     <MESSAGE value="fixes, using property arguments in tests added" />
     <MESSAGE value="failwith messages fix" />
-    <MESSAGE value="fixes" />
     <MESSAGE value="fixes of 'isEqual' location" />
     <MESSAGE value="docs added" />
     <MESSAGE value="linter added" />
-    <option name="LAST_COMMIT_MESSAGE" value="linter added" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>

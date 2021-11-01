@@ -4,7 +4,7 @@ open BigIntCalculator
 open AST
 open BigIntFunctions
 
-module toTree =
+module ToTree =
     
     let toDot ast output = 
         

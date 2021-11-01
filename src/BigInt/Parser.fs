@@ -25,7 +25,7 @@ type token =
   | MUL
   | SUB
   | SUM
-  | NUM of (BigIntFunctions.bInt)
+  | NUM of (BigIntFunctions.BigInt)
 // This type is used to give symbolic names to token indexes, useful for error messages
 type tokenId = 
     | TOKEN_EOF
@@ -364,7 +364,7 @@ let _fsyacc_reductions ()  =    [|
                  : 'gentype_power));
 # 365 "Parser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
-            let _1 = parseState.GetInput(1) :?> BigIntFunctions.bInt in
+            let _1 = parseState.GetInput(1) :?> BigIntFunctions.BigInt in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (

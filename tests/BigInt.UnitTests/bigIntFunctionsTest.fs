@@ -26,7 +26,7 @@ module BigIntFunctionsTest =
             let strNum = num |> string
             let newX = if strNum.[0] = '-' then strNum.[1..] else strNum
             let list = sysListToMyList (List.map (fun elem -> int elem - int '0' ) (List.ofSeq newX) )
-            bInt (list, (if num >= BigInteger 0 then true else false))
+            BigInt (list, (num >= BigInteger 0))
 
         let intToBinary x =
             let mutable r = if x = 0 then "0" else ""

@@ -1,6 +1,6 @@
 # Language guide
 
-BigInteger calculator uses a simple programming language to process arithmetic expressions
+BigIntCalculator uses a simple programming language to process arithmetic expressions
 
 Code consists of statements with variables' names and arithmetic expressions with them. Each arithmetic expression is defined as a variable, that can be used in other expressions or printed in console.
 
@@ -26,7 +26,7 @@ There are two types of statements in the language.
 
 ## Expressions
 
-* `Num of <bInt>` 
+* `Num of <BigInt>` 
 * `NVar of <VName>` 
 * `Sum of <Expression * Expression>` 
 * `Sub of <Expression * Expression>` 

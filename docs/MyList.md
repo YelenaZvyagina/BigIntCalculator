@@ -1,6 +1,6 @@
 # MyList
 
-MyList is a library, implementing functions for non-empty lists. It's used for bigInt functions.
+MyList is a library, implementing functions for non-empty lists. It's used for BigInt functions.
 
 # Type
 

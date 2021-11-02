@@ -13,7 +13,7 @@ Dot file with a syntax tree can be obtained by running `ToTree.ToDot <ast> <outp
 
 ### Another functions
 
-* `processExpr (vDict:Dictionary<AST.VName,AST.Expression>) (expr:AST.Expression)` - return a result of a given expression in `bInt` format
+* `processExpr (vDict:Dictionary<AST.VName,AST.Expression>) (expr:AST.Expression)` - return a result of a given expression in `BigInt` format
 * `processStmt (vDict:Dictionary<AST.VName,AST.Expression>) (pDict:Dictionary<string,string>) (stmt:AST.Stmt)` - gets an expression from a statement and sets it's value to a dictionaries with variable as a key
 * `calculate (ast:AST.Stmt list)` - assisting function to compute a result of code with a single statement
 * `errorHighlight (line:int), (col:int), (msg:string), (lastToken:String)` - prints into console highlighted message with location of error in code. Located in module CliColors, that also includes declaration for colours, that are used.

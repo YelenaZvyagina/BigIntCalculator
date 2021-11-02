@@ -8,11 +8,9 @@
     <projectFile profileName="SampleApp">../LongArithm/src/SampleApp/SampleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="fix">
+    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="docs amended">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Installation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/BigInt.UnitTests.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/BigInt.UnitTests.fsproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635793222126</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="docs amended">
+      <created>1635871110707</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1635871110707</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,6 +308,7 @@
     <MESSAGE value="linter added" />
     <MESSAGE value="fixes" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="docs amended" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs amended" />
   </component>
 </project>

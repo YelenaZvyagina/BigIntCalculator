@@ -1,10 +1,10 @@
 # BigInt
 
-BigInt is a library used for a calculator, it implements functions for long arithmetics.
+BigInt is a library used for a BigIntCalculator, it implements functions for long arithmetics.
 
 ## Type
 
-An instance of bInt consists of `isPos of Boolean` and `digits of <MyList<int>>`. `<MyList<int>> `consists of integers from 0 to 9
+An instance of BigInt consists of `isPos of Boolean` and `digits of <MyList<int>>`. `<MyList<int>> `consists of integers from 0 to 9
 
 ## Functions
 

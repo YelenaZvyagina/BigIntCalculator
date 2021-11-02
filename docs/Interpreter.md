@@ -8,7 +8,7 @@ Firstly,  ` Main.parse <string>  ` creates an abstract syntax tree to interpreta
 
 Then `Interpreter.run <ast>` returns three dictionaries. The first contains values of all variables in `AST.Expression` format,the second contains variables in `string` format, the third has only one key - `"print"` with string of result of interpretation.
 
-Dot file with a syntax tree can be obtained by running `toTree.toDot <ast> <output file path>`.
+Dot file with a syntax tree can be obtained by running `ToTree.ToDot <ast> <output file path>`.
 
 
 ### Another functions

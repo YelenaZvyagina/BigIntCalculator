@@ -1,16 +1,31 @@
-## BigInt Calculator
+# BigInt Calculator
 
 Big Integer Calculator is a tool for computing arithmetic expressions with long integers. Contains libraries for long arithmetics and non-empty lists and an interpreter for a simple programming language.
 
-# Getting started
+## Builds
+
+||Github Actions|
+|------|:------:|
+|**Build Status**|[![GitHub Actions](https://github.com/YelenaZvyagina/bigIntCalculator/workflows/Build/badge.svg?branch=master)](https://github.com/YelenaZvyagina/bigIntCalculator/actions?query=branch%3Amain) |
+|**Build History**|[![Build History](https://buildstats.info/github/chart/YelenaZvyagina/bigIntCalculator)](https://github.com/YelenaZvyagina/bigIntCalculator/actions?query=branch%3Amain) |
+
+
+## Getting started
 
 Package can be installed with dotnet by following these steps:
 
 * Add a source in your NuGet.config file
+#
+     dotnet nuget add source "https://nuget.pkg.github.com/YelenaZvyagina/index.json"
 
 * Authorize with your github token
+#
+    paket config add-token "https://nuget.pkg.github.com/YelenaZvyagina/index.json" <token>
 
 * Install the package
+# 
+    dotnet add PROJECT package BigIntCalculator --version <version>
+
 
 ## Usage
 
@@ -31,9 +46,7 @@ Code of the language consists of statements with variables' names and arithmetic
 
 ## Documentation
 
-Overview of the tool and how to use it can be found at [docs](link ghio).
-
-
+Overview of the tool and how to use it can be found at [docs](https://yelenazvyagina.github.io/bigIntCalculator/).
 
 ## Directory structure
 

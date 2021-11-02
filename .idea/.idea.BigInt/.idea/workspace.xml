@@ -9,7 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="fix">
-      <change beforePath="$PROJECT_DIR$/src/BigInt.Cli/Main.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt.Cli/Main.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Installation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/BigInt.UnitTests.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/BigInt.UnitTests.fsproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +37,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d786d2e1134ee7f1b7f1f50cc7fa19a0d3800/da/08d152eb/Expect.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/yelena/study/BigInt/src/BigInt/toTree.fs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4badc7840904ff2d493120e6add7407712600/c6/45782c42/Implementation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/yelena/study/BigInt/src/BigInt/AST.fs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zsT6BNlTVaiPsaO3GtYw5l9mPP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

@@ -51,7 +51,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/SampleApp/SampleApp.csproj" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected=".NET Project.BigInt.Cli">
+  <component name="RunManager" selected=".NET Project.BigInt.UnitTests">
     <configuration name="BigInt.Cli" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/BigInt.Cli/bin/Debug/net5.0/BigInt.Cli" />
       <option name="PROGRAM_PARAMETERS" value="--compute --inputfile $PROJECT_DIR$/src/text.txt" />

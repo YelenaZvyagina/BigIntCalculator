@@ -8,15 +8,15 @@
         <Version>0.1.1</Version>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/YelenaZvyagina/bigIntCalculator</RepositoryUrl>
-        <PackageVersion>0.1.2</PackageVersion>
+        <PackageVersion>0.1.3</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
         <Compile Include="myList.fs" />
         <Compile Include="bigIntFunctions.fs" />
         <Compile Include="AST.fs" />
-        <None Include="Parser.fsy"/>
-        <None Include="Lexer.fsl"/>
+        <None Include="Parser.fsy" />
+        <None Include="Lexer.fsl" />
         <Compile Include="Parser.fs" />
         <Compile Include="Lexer.fs" />
         <Compile Include="Interpreter.fs" />

@@ -10,9 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt.Cli/Main.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt.Cli/Main.fs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/calculatorTests.fs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/calculatorTests.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +175,7 @@
       <workItem from="1636723431746" duration="1434000" />
       <workItem from="1636727040726" duration="1574000" />
       <workItem from="1636729928683" duration="2732000" />
-      <workItem from="1636747031471" duration="5406000" />
+      <workItem from="1636747031471" duration="7144000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -326,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636731417656</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="printing to console added">
+      <created>1636755621538</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1636755621538</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,6 +372,7 @@
     <MESSAGE value="fix v" />
     <MESSAGE value="for check" />
     <MESSAGE value="fixes back" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes back" />
+    <MESSAGE value="printing to console added" />
+    <option name="LAST_COMMIT_MESSAGE" value="printing to console added" />
   </component>
 </project>

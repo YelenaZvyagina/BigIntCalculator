@@ -35,11 +35,9 @@ module Interpreter =
     
     type Dicts = { VariablesDictionary: Dictionary<string, string>; InterpretedDictionary: Dictionary<AST.VName, AST.Expression> }
     
-    let consoleLog =
-        let lockObj = obj()
-        fun str ->
-            lock lockObj (fun _ ->
-                printfn $"%s{str}")
+    let private newDataToConsole = Event<string>()
+
+    let printed = newDataToConsole.Publish
     
     let rec processExpr (vDict:Dictionary<AST.VName,AST.Expression>) expr =
         match expr with
@@ -72,7 +70,8 @@ module Interpreter =
             | AST.Num n ->
                 let num = bntToString n
                 let str = (if num.[0] = '+' then num.[1..] else num) + "\n"
-                consoleLog $"%s{str.ToString()}"
+                let str = (if num.[0] = '+' then num.[1..] else num) + "\n"
+                newDataToConsole.Trigger str
                 vDict, printString + str
             | _ ->
                 failwithf "Num expected, got: %A" data

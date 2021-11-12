@@ -62,11 +62,12 @@ module Interpreter =
             match data with
             | AST.Num n ->
                 let num = bntToString n
-                if pDict.ContainsKey outputBuffer
+                pDict.["print"] <- (pDict.["print"] + (if num.[0] = '+' then num.[1..] else num) + "\n")
+                (*if pDict.ContainsKey outputBuffer
                 then 
                     pDict.[outputBuffer] <- (pDict.[outputBuffer] + (if num.[0] = '+' then num.[1..] else num) + "\n")
                 else
-                    pDict.Add (outputBuffer, (if num.[0] = '+' then num.[1..] else num) + "\n")
+                    pDict.Add (outputBuffer, (if num.[0] = '+' then num.[1..] else num) + "\n"*)
             | _ ->
                 failwithf "Num expected, got: %A" data
         | AST.VDecl(v,e) ->
@@ -79,6 +80,7 @@ module Interpreter =
         let vDict = Dictionary<_,_>()
         let pDict = Dictionary<_,_>()
         let varDict = Dictionary<_,_>()
+        pDict.Add("print", "")
         let vD, _ = List.fold (fun (d1, d2) stmt -> processStmt d1 d2 stmt) (vDict, pDict) ast
         for i in vD.Keys do
             match vD.[i] with

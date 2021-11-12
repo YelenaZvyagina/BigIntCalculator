@@ -8,8 +8,8 @@
     <projectFile profileName="SampleApp">../LongArithm/src/SampleApp/SampleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="some fixes in fsproj">
-      <change beforePath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" afterDir="false" />
+    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +172,7 @@
       <workItem from="1635779373462" duration="7263000" />
       <workItem from="1636493060164" duration="723000" />
       <workItem from="1636723431746" duration="1434000" />
-      <workItem from="1636727040726" duration="1178000" />
+      <workItem from="1636727040726" duration="1574000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -300,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636727603108</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix v">
+      <created>1636728540369</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1636728540369</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,6 +345,7 @@
     <MESSAGE value="docs fixes" />
     <MESSAGE value="fixes" />
     <MESSAGE value="some fixes in fsproj" />
-    <option name="LAST_COMMIT_MESSAGE" value="some fixes in fsproj" />
+    <MESSAGE value="fix v" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix v" />
   </component>
 </project>

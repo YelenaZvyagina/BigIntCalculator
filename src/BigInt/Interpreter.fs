@@ -32,6 +32,15 @@ module CliColors =
 module Interpreter =
     
     let outputBuffer = "print"
+    
+    type Dicts = { VariablesDictionary: Dictionary<string, string>; InterpretedDictionary: Dictionary<AST.VName, AST.Expression> }
+    
+    let consoleLog =
+        let lockObj = obj()
+        fun str ->
+            lock lockObj (fun _ ->
+                printfn $"%s{str}")
+    
     let rec processExpr (vDict:Dictionary<AST.VName,AST.Expression>) expr =
         match expr with
         | AST.Num n -> n
@@ -51,7 +60,7 @@ module Interpreter =
         | AST.Abs x -> absBnt (processExpr vDict x)
         | AST.Bin x -> toBinary (processExpr vDict x)
 
-    let processStmt (vDict:Dictionary<AST.VName,AST.Expression>) (pDict:Dictionary<string,string>) stmt =
+    let processStmt (vDict:Dictionary<AST.VName,AST.Expression>) printString stmt =
         match stmt with
         | AST.Print v ->
             let data =
@@ -62,29 +71,40 @@ module Interpreter =
             match data with
             | AST.Num n ->
                 let num = bntToString n
-                if pDict.ContainsKey outputBuffer
-                then 
-                    pDict.[outputBuffer] <- (pDict.[outputBuffer] + (if num.[0] = '+' then num.[1..] else num) + "\n")
-                else
-                    pDict.Add (outputBuffer, (if num.[0] = '+' then num.[1..] else num) + "\n")
+                let str = (if num.[0] = '+' then num.[1..] else num) + "\n"
+                consoleLog $"%s{str.ToString()}"
+                vDict, printString + str
             | _ ->
                 failwithf "Num expected, got: %A" data
         | AST.VDecl(v,e) ->
             if vDict.ContainsKey v
             then vDict.[v] <- AST.Num (processExpr vDict e)
             else vDict.Add(v, AST.Num (processExpr vDict e))
-        vDict, pDict
-
-    let run ast =
-        let vDict = Dictionary<_,_>()
-        let pDict = Dictionary<_,_>()
-        let varDict = Dictionary<_,_>()
-        let vD, _ = List.fold (fun (d1, d2) stmt -> processStmt d1 d2 stmt) (vDict, pDict) ast
+            vDict, printString
+            
+    let runVariables (startDicts: Dicts) ast =
+        let startDict = startDicts.VariablesDictionary
+        let variableDict = startDicts.InterpretedDictionary
+        let vD, _ = List.fold (fun (d1, ps) stmt -> processStmt d1 ps stmt) (variableDict, "") ast
         for i in vD.Keys do
             match vD.[i] with
-            | AST.Num n -> varDict.[string i] <- bntToString n
-            | _ -> failwithf "Num expected, got: %A" vD.[i]
-        vD, varDict, pDict
+            | AST.Num n ->
+                match i with
+                | AST.Var k -> startDict.[k] <- bntToString n
+            | _ -> failwith "impossible case"
+        let dicts = { VariablesDictionary = startDict; InterpretedDictionary = vD }
+        dicts
+        
+    let runPrint ast =
+        let vDict = Dictionary<_,_>()
+        let varDict = Dictionary<_,_>()
+        let vD, printString = List.fold (fun (d1, ps) stmt -> processStmt d1 ps stmt) (vDict, "") ast
+        for i in vD.Keys do 
+            match vD.[i] with
+            | AST.Num n ->
+                varDict.[string i] <- bntToString n
+            | _ -> failwith "impossible case"
+        printString
 
     let calculate (ast:AST.Stmt list) =
         match ast.[0] with

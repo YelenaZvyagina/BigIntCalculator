@@ -35,8 +35,8 @@ module Main =
             let ast = parse input
             if p.Contains(Compute)
             then
-                let _, _, pD = run ast
-                printfn "%s" pD.[outputBuffer]
+                let printstring = runPrint ast
+                printfn "%s" printstring
             if p.Contains(ToDot) then toDot ast (results.GetResult ToDot)
         
         0

@@ -20,8 +20,8 @@ module CalculatorTests =
         print z
         print w
         """ 
-    let _, _, pD = run (parse example)
-    printfn "%s" pD.[outputBuffer]
+    let printstring = runPrint (parse example)
+    printfn "%s" printstring
     printfn "Expected \n9\n-4\n5\n63"
 
 

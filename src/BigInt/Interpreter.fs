@@ -25,6 +25,8 @@ module CliColors =
         Console.ForegroundColor <- cyan
         printfn "Message %A" msg
         Console.ResetColor()
+        let errorString = (sprintf "Execution failed at: line %A, column %A. Last token %A" (line+1) (col+1) lastToken) 
+        errorString
         
 
 module Interpreter =
@@ -103,5 +105,5 @@ module Interpreter =
             let column = pos.Column
             let message = errorMsg.Message
             let lastToken = String(lexbuf.Lexeme)
-            errorHighlight line column message lastToken
-            exit 1   
+            let es = errorHighlight line column message lastToken
+            failwithf "%A" es 

@@ -8,8 +8,8 @@
     <projectFile profileName="SampleApp">../LongArithm/src/SampleApp/SampleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="docs fixes">
-      <change beforePath="$PROJECT_DIR$/docs/Installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Installation.md" afterDir="false" />
+    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +32,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d786d2e1134ee7f1b7f1f50cc7fa19a0d3800/da/08d152eb/Expect.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4badc7840904ff2d493120e6add7407712600/c6/45782c42/Implementation.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="ProjectId" id="1zsT6BNlTVaiPsaO3GtYw5l9mPP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -49,9 +45,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/SampleApp/SampleApp.csproj" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Project.BigInt.UnitTests">
+  <component name="RunManager" selected=".NET Project.BigInt.Cli">
     <configuration name="BigInt.Cli" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/BigInt.Cli/bin/Debug/net5.0/BigInt.Cli" />
       <option name="PROGRAM_PARAMETERS" value="--compute --inputfile $PROJECT_DIR$/src/text.txt" />
@@ -172,6 +170,8 @@
       <workItem from="1635705490079" duration="6000" />
       <workItem from="1635717379739" duration="445000" />
       <workItem from="1635779373462" duration="7263000" />
+      <workItem from="1636493060164" duration="723000" />
+      <workItem from="1636723431746" duration="373000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -288,6 +288,12 @@
     <option name="localTasksCounter" value="17" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>

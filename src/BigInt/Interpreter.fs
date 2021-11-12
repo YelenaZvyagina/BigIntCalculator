@@ -62,12 +62,11 @@ module Interpreter =
             match data with
             | AST.Num n ->
                 let num = bntToString n
-                pDict.["print"] <- (pDict.["print"] + (if num.[0] = '+' then num.[1..] else num) + "\n")
-                (*if pDict.ContainsKey outputBuffer
+                if pDict.ContainsKey outputBuffer
                 then 
                     pDict.[outputBuffer] <- (pDict.[outputBuffer] + (if num.[0] = '+' then num.[1..] else num) + "\n")
                 else
-                    pDict.Add (outputBuffer, (if num.[0] = '+' then num.[1..] else num) + "\n"*)
+                    pDict.Add (outputBuffer, (if num.[0] = '+' then num.[1..] else num) + "\n")
             | _ ->
                 failwithf "Num expected, got: %A" data
         | AST.VDecl(v,e) ->
@@ -80,7 +79,6 @@ module Interpreter =
         let vDict = Dictionary<_,_>()
         let pDict = Dictionary<_,_>()
         let varDict = Dictionary<_,_>()
-        pDict.Add("print", "")
         let vD, _ = List.fold (fun (d1, d2) stmt -> processStmt d1 d2 stmt) (vDict, pDict) ast
         for i in vD.Keys do
             match vD.[i] with
@@ -96,9 +94,7 @@ module Interpreter =
     let parse text =
         let lexbuf = LexBuffer<char>.FromString text
         try
-            let parsed =
-                lexbuf
-                |> Parser.start Lexer.tokenStream
+            let parsed = Parser.start Lexer.tokenStream lexbuf
             parsed
         with errorMsg ->
             // Prints colored err message

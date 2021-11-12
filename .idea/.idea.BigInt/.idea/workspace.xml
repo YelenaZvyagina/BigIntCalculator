@@ -10,6 +10,9 @@
   <component name="ChangeListManager">
     <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/BigInt.fsproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/Lexer.fsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Lexer.fsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +176,7 @@
       <workItem from="1636493060164" duration="723000" />
       <workItem from="1636723431746" duration="1434000" />
       <workItem from="1636727040726" duration="1574000" />
+      <workItem from="1636729928683" duration="1471000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -307,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636728540369</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="for check">
+      <created>1636730094642</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1636730094642</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,6 +357,7 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="some fixes in fsproj" />
     <MESSAGE value="fix v" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix v" />
+    <MESSAGE value="for check" />
+    <option name="LAST_COMMIT_MESSAGE" value="for check" />
   </component>
 </project>

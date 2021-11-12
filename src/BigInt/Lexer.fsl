@@ -16,7 +16,7 @@ let digits = [ '1'-'9' ]+ + [ '0'-'9' ]*
 let number = sign + ('0' | digits)
 
 let vname = [ 'a'-'z' 'A'-'z' ]+
- 
+
 rule tokenStream = parse
 // --------------------------
 | whitespace	{ tokenStream lexbuf }

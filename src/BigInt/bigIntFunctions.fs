@@ -133,19 +133,37 @@ module BigIntFunctions =
            | First x -> First (x * num)
            | Cons (h, t) -> Cons ((h * num), go t num)
         reverse (transferOdd (reverse (go ml num)))
-      
-    let multMl (ml1 : MyList<_>) (ml2 : MyList<_>) =
-        let ml3, ml4 =
-            if ml1Greater ml1 ml2 then (ml1, ml2) else (ml2, ml1)
-        let rec go (ml1 : MyList<_>) (ml2 : MyList<_>) acc (sum : MyList<_>) =
-            match ml1, ml2 with
-            | ml1, First x ->
-                removeZeros (sumMl sum (multToNumMl (multToNumMl ml1 x) (int (10.0**acc)) )) 
-            | ml1, Cons (h1, t1) ->
-                let temp = sumMl sum (multToNumMl (multToNumMl ml1 h1) (int (10.0**acc)) )
-                go ml1 t1 (acc + 1.0) (removeZeros temp)
-        (go ml3 (reverse ml4) 0.0 (First 0))
         
+    let zeroConcat acc =
+        let rec go acc resstr =
+            match acc with
+            | 0 -> resstr
+            | _ ->
+                let s1 = resstr + "0"
+                go (acc - 1) s1
+        (go acc "1")    
+        
+    let multMl (a: MyList<_>) (b: MyList<_>) =
+        let rec go (a: MyList<_>) (b: MyList<_>) (sum: MyList<_>) acc = 
+            match (a, b) with
+            | a, First b ->
+                let temp = zeroConcat acc
+                let deg = strToMyList temp
+                let res = 
+                    if deg = First 1 then multToNumMl a b
+                    else concat (multToNumMl a b) (slice deg 1 ((length deg) - 1))                
+                sumMl res sum           
+            | a, Cons(hd_b, tl_b) ->
+                let temp = zeroConcat acc
+                let deg = strToMyList temp
+                let res = 
+                    if deg = First 1 then multToNumMl a hd_b
+                    else concat (multToNumMl a hd_b) (slice deg 1 ((length deg) - 1))
+                go a tl_b (sumMl sum res) (acc + 1)   
+        if  ml1Greater a b 
+        then reverse (transferOdd (reverse (go a (reverse b) (First 0) 0)))
+        else reverse (transferOdd (reverse (go b (reverse a) (First 0) 0)))
+         
     let multBnt (bnt1 : BigInt) (bnt2 : BigInt) =
         match bnt1.isPos, bnt2.isPos with
         | true, true | false, false -> BigInt( (multMl bnt1.digits bnt2.digits), true)
@@ -239,20 +257,17 @@ module BigIntFunctions =
         let rem = remBnt (BigInt (x.digits, true)) (BigInt (First 2, true))
         BigInt (go divd.digits (First (getHead rem.digits)), x.isPos)
 
-    let toPower (bnt : BigInt) (num : BigInt) =
-        if not num.isPos then failwith "the power should be positive"
-        let rec go (ml : MyList<_>) (pow : MyList<_>) =
-            match pow with
-            | First 0 -> First 1
-            | First 1 -> ml
+    let toPower (n: BigInt) (pow: BigInt) =
+        let rec go r (p: BigInt) =
+            match p.digits with
+            | First 0 -> BigInt(First 1, true)
+            | First 1 -> r
             | _ ->
-                let odd, rem = divRemMl pow (First 2)
-                let temp = go ml odd
-                let temp1 = multMl temp temp
-                if rem = First 0 then temp1 else (multMl temp1 ml)
-        match bnt.isPos with
-        | true -> BigInt ((go bnt.digits num.digits), true)
-        | false -> if isOdd num then BigInt ((go bnt.digits num.digits), true) else BigInt ((go bnt.digits num.digits), false)
+                let rm, div = (remBnt p (BigInt ( First 2, true) )), (divBnt p (BigInt ( First 2, true)) )
+                let nr = go r div
+                if rm.digits = (First 0) then multBnt nr nr else multBnt n (multBnt nr nr) 
+        if not pow.isPos then failwith "Positive power expected"
+        else go n pow
            
     let strToBigint (s : String) =
         let pos = s.[0] <> '-' 
@@ -278,8 +293,4 @@ module BigIntFunctions =
         let s = (myListToSystemList bnt.digits)
         let convertToString l = l |> List.map (fun i -> i.ToString()) |> String.concat ""
         if not bnt.isPos then "-" + (convertToString s)
-        else convertToString s
-
-        
-         
-                
+        else convertToString s               

@@ -1,7 +1,7 @@
 namespace BigIntCalculator
 
 module MyList =
-
+    open System
     type MyList<'t> =
         | First of 't
         | Cons of 't * MyList<'t>
@@ -72,3 +72,19 @@ module MyList =
         
     let reverse (ml : MyList<int>) =
         sysListToMyList ( List.rev (myListToSystemList ml) )
+    let private tryParseWith (tryParseFunc: string -> bool * _) =  
+        tryParseFunc >> function                                   
+        | true, v -> Some v                                        
+        | false, _ -> None
+  
+    let strToMyList (str: string) =                                                
+        let listOfInt =                                                               
+            [for ch in str do                                                         
+                match tryParseWith Int32.TryParse (string ch) with                    
+                | None -> failwith $"Could not parse symbol: %A{ch} in %s{str}"       
+                | Some intValue -> intValue                                           
+            ]                                                                                                                                                             
+        sysListToMyList listOfInt
+        
+    let slice (a: MyList<int>) x1 x2 =
+        sysListToMyList ((myListToSystemList a).[x1..x2])   

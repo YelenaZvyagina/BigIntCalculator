@@ -10,7 +10,12 @@
   <component name="ChangeListManager">
     <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Interpreter.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/Lexer.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Lexer.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/Lexer.fsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Lexer.fsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/Parser.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Parser.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/Parser.fsy" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/Parser.fsy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/bigIntFunctions.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BigInt/myList.fs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BigInt/myList.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +45,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3501355" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35014006" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -53,7 +58,7 @@
   <component name="RunManager" selected=".NET Project.BigInt.Cli">
     <configuration name="BigInt.Cli" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/BigInt.Cli/bin/Debug/net5.0/BigInt.Cli" />
-      <option name="PROGRAM_PARAMETERS" value="--compute --inputstring &quot;let x = 9 print x&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="--compute --inputstring &quot;let x = 1  let y  = 1  print x + y&quot;" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/BigInt.Cli/bin/Debug/net5.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -175,7 +180,11 @@
       <workItem from="1636723431746" duration="1434000" />
       <workItem from="1636727040726" duration="1574000" />
       <workItem from="1636729928683" duration="2732000" />
-      <workItem from="1636747031471" duration="7144000" />
+      <workItem from="1636747031471" duration="8874000" />
+      <workItem from="1636803430174" duration="6866000" />
+      <workItem from="1636970114583" duration="3689000" />
+      <workItem from="1636973816178" duration="9403000" />
+      <workItem from="1637277312402" duration="318000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -331,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636755621538</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="events">
+      <created>1636758058618</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1636758058618</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,6 +389,7 @@
     <MESSAGE value="for check" />
     <MESSAGE value="fixes back" />
     <MESSAGE value="printing to console added" />
-    <option name="LAST_COMMIT_MESSAGE" value="printing to console added" />
+    <MESSAGE value="events" />
+    <option name="LAST_COMMIT_MESSAGE" value="events" />
   </component>
 </project>

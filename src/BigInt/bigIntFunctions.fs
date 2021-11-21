@@ -94,7 +94,7 @@ module BigIntFunctions =
             | First x, First y -> First (x+y)
             | Cons (h1, t1), Cons (h2, t2) -> Cons ( (h1 + h2), go t1 t2 )
             | _, _ -> failwith "This case cannot be achieved"
-        reverse (transferOdd (go (reverse ml3) (reverse ml4)) )
+        removeZeros (reverse (transferOdd (go (reverse ml3) (reverse ml4)) ))
      
     let subMl (ml1 : MyList<_>) (ml2 : MyList<_> ) =
         let ml3, ml4 = becomeEqual ml1 ml2

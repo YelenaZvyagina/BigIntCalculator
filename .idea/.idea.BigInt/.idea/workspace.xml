@@ -8,8 +8,8 @@
     <projectFile profileName="SampleApp">../LongArithm/src/SampleApp/SampleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BigInt/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="53238807-f451-4712-9fa9-e2d83a5bddfe" name="Changes" comment="fixes">
+      <change beforePath="$PROJECT_DIR$/tests/BigInt.UnitTests/calculatorTests.fs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/BigInt.UnitTests/calculatorTests.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +31,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///home/yelena/RiderProjects/bigIntCalculator/src/BigInt/bigIntFunctions.fs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zsT6BNlTVaiPsaO3GtYw5l9mPP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -180,6 +183,7 @@
       <workItem from="1636973816178" duration="9403000" />
       <workItem from="1637277312402" duration="599000" />
       <workItem from="1637278572740" duration="1078000" />
+      <workItem from="1637486748112" duration="762000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1634992128903</created>
@@ -349,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637277678561</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fixes">
+      <created>1637486860539</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1637486860540</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +396,6 @@
     <MESSAGE value="fix" />
     <MESSAGE value="docs amended" />
     <MESSAGE value="docs fixes" />
-    <MESSAGE value="fixes" />
     <MESSAGE value="some fixes in fsproj" />
     <MESSAGE value="fix v" />
     <MESSAGE value="for check" />
@@ -393,6 +403,7 @@
     <MESSAGE value="printing to console added" />
     <MESSAGE value="events" />
     <MESSAGE value="long-awaited upd" />
-    <option name="LAST_COMMIT_MESSAGE" value="long-awaited upd" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>

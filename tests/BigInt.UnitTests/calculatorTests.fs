@@ -48,11 +48,6 @@ module CalculatorTests =
                 let calc = "let x = 2^8 + 3^2"
                 let ansCalc = calculate (parse calc)
                 Expect.equal "265" (bntToString ansCalc) "Power works incorrectly"
-                
-            testCase "Binary test" <| fun _ ->
-                let calc = "let x = &8"
-                let anscalc = calculate (parse calc)
-                Expect.equal "1000" (bntToString anscalc) "Transfer to binary works incorrectly"
             
             testCase "Parenthesis test" <| fun _ ->
                 let calc = "let x = 25 + 2 * ((36 / 2) - 6 / (3 * 2))"
